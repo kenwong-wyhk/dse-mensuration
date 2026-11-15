@@ -1,0 +1,111 @@
+
+% Q15
+\question The angle of a sector is decreased by $60\%$ but its radius is increased by $k\%$ . If the arc length of the sector remains unchanged, find the value of $k$ .
+\begin{choices}
+    \choice $40$
+    \choice $60$
+    \choice $67$
+    \correctchoice $150$
+\end{choices}
+\begin{solution}
+\[ (1 - 60\%)(1 + k\%) = 1 \implies 0.4(1 + 0.01k) = 1 \implies 1 + 0.01k = 2.5 \implies k = 150 \quad \text{(D)} \]
+\end{solution}
+
+% Q16
+\question If the volume of a right circular cylinder of base radius $5a\text{ cm}$ and height $7b\text{ cm}$ is $525\text{ cm}^3$ , then the volume of a right circular cone of base radius $7a\text{ cm}$ and height $5b\text{ cm}$ is
+\begin{choices}
+    \choice $175\text{ cm}^3$ .
+    \correctchoice $245\text{ cm}^3$ .
+    \choice $490\text{ cm}^3$ .
+    \choice $735\text{ cm}^3$ .
+\end{choices}
+\begin{solution}
+From the cylinder: $\pi(5a)^2(7b) = 525 \implies 175\pi a^2b = 525 \implies \pi a^2b = 3$. \\
+Volume of the cone $= \frac{1}{3}\pi(7a)^2(5b) = \frac{245}{3}\pi a^2b = \frac{245}{3}(3) = 245\text{ cm}^3$ (B).
+\end{solution}
+
+% Q17
+\question In the figure, $P$ and $Q$ are points lying on $OR$ while $U$ and $T$ are points lying on $OS$ such that $OP = PQ = QR$ and $PU \parallel QT \parallel RS$ . The ratio of the area of the trapezium $PQTU$ to the area of the trapezium $QRST$ is
+
+\begin{minipage}{0.45\textwidth}
+\begin{choices}
+    \choice $1 : 2$ .
+    \choice $2 : 3$ .
+    \correctchoice $3 : 5$ .
+    \choice $4 : 9$ .
+\end{choices}
+\end{minipage}
+\begin{minipage}{0.52\textwidth}
+\centering
+\begin{tikzpicture}[scale=0.8]
+    \coordinate (O) at (3.6,4.2);
+    \coordinate (R) at (0,0);
+    \coordinate (S) at (5.1,0);
+    \coordinate (P) at ($(O)!0.333!(R)$);
+    \coordinate (Q) at ($(O)!0.667!(R)$);
+    \coordinate (U) at ($(O)!0.333!(S)$);
+    \coordinate (T) at ($(O)!0.667!(S)$);
+    \draw[thick] (O) -- (R) -- (S) -- cycle;
+    \draw[thick] (P) -- (U);
+    \draw[thick] (Q) -- (T);
+    \node[above] at (O) {$O$};
+    \node[left] at (P) {$P$};
+    \node[left] at (Q) {$Q$};
+    \node[below left] at (R) {$R$};
+    \node[right] at (U) {$U$};
+    \node[right] at (T) {$T$};
+    \node[below right] at (S) {$S$};
+\end{tikzpicture}
+\end{minipage}
+\begin{solution}
+Since $OP : OQ : OR = 1 : 2 : 3$ and $\triangle OPU \sim \triangle OQT \sim \triangle ORS$:
+\[ \text{Area}(\triangle OPU) : \text{Area}(\triangle OQT) : \text{Area}(\triangle ORS) = 1^2 : 2^2 : 3^2 = 1 : 4 : 9 \]
+Thus, $\text{Area}(PQTU) : \text{Area}(QRST) = (4 - 1) : (9 - 4) = 3 : 5$ (C).
+\end{solution}
+
+% Q18
+\question In the figure, $ABCD$ is a parallelogram. Let $E$ be a point lying on $AD$ such that $AE : ED = 2 : 5$ . $CB$ is produced to the point $F$ such that $BF = DE$ . Denote the point of intersection of $AB$ and $EF$ by $G$ . It is given that $BD$ and $CG$ intersect at the point $H$ . If the area of $\triangle AEG$ is $48\text{ cm}^2$ , then the area of $\triangle CDH$ is
+
+\begin{minipage}{0.45\textwidth}
+\begin{choices}
+    \choice $98\text{ cm}^2$ .
+    \correctchoice $343\text{ cm}^2$ .
+    \choice $420\text{ cm}^2$ .
+    \choice $588\text{ cm}^2$ .
+\end{choices}
+\end{minipage}
+\begin{minipage}{0.52\textwidth}
+\centering
+\begin{tikzpicture}[scale=0.7]
+    \coordinate (C) at (0,0);
+    \coordinate (B) at (4.9,0);
+    \coordinate (F) at (8.4,0);
+    \coordinate (D) at (2.1,3.5);
+    \coordinate (A) at (7.0,3.5);
+    \coordinate (E) at (5.6,3.5);
+    \path[name path=AB] (A) -- (B);
+    \path[name path=EF] (E) -- (F);
+    \path[name intersections={of=AB and EF, by=G}];
+    \path[name path=BD] (B) -- (D);
+    \path[name path=CG] (C) -- (G);
+    \path[name intersections={of=BD and CG, by=H}];
+    \draw[thick] (A) -- (B) -- (C) -- (D) -- cycle;
+    \draw[thick] (B) -- (F) -- (E);
+    \draw[thick] (B) -- (D);
+    \draw[thick] (C) -- (G);
+    \node[above right] at (A) {$A$};
+    \node[below] at (B) {$B$};
+    \node[below left] at (C) {$C$};
+    \node[above left] at (D) {$D$};
+    \node[above] at (E) {$E$};
+    \node[below right] at (F) {$F$};
+    \node[right] at (G) {$G$};
+    \node[above] at (H) {$H$};
+\end{tikzpicture}
+\end{minipage}
+\begin{solution}
+Since $\triangle AEG \sim \triangle FBG$ and $AE : BF = 2 : 5$, we have $AG : GB = 2 : 5$, so $AG : AB = 2 : 7$. \\
+In $\triangle ABD$, $\dfrac{\text{Area}(\triangle AEG)}{\text{Area}(\triangle ABD)} = \left(\frac{2}{7}\right)^2 = \frac{4}{49} \implies \text{Area}(\triangle BCD) = \text{Area}(\triangle ABD) = 48 \times \frac{49}{4} = 588\text{ cm}^2$. \\
+Since $\triangle CDH \sim \triangle GBH$, we have $DH : HB = CD : BG = 7 : 5$. \\
+Thus, $\text{Area}(\triangle CDH) = \frac{7}{7+5} \times 588 = 343\text{ cm}^2$ (B).
+\end{solution}

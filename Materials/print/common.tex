@@ -1,0 +1,33 @@
+% Shared preamble for the Mensuration revision handouts.
+\usepackage[a4paper,margin=18mm,top=16mm,bottom=18mm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{booktabs,array,tabularx}
+\usepackage{multicol}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{lastpage}
+
+\definecolor{wyblue}{HTML}{004898}
+\definecolor{wyred}{HTML}{D7000F}
+\definecolor{wygrey}{HTML}{6D6E71}
+
+% Function names in upright type, as in HKEAA papers.
+\def\f{\mathrm{f}}  \def\g{\mathrm{g}}  \def\h{\mathrm{h}}
+\def\p{\mathrm{p}}  \def\q{\mathrm{q}}  \def\F{\mathrm{F}}
+
+\newcommand{\mk}[1]{\hfill\textnormal{(#1)}}
+\newcommand{\src}[1]{{\small\color{wygrey}[#1]}}
+
+\tcbset{
+  box/.style={enhanced, sharp corners, boxrule=0.6pt, colframe=wyblue, colback=white,
+              coltitle=white, colbacktitle=wyblue, fonttitle=\bfseries, left=6pt, right=6pt,
+              top=4pt, bottom=4pt, before skip=6pt, after skip=6pt},
+  trap/.style={enhanced, sharp corners, boxrule=0pt, borderline west={2pt}{0pt}{wyred},
+              colback=white, left=8pt, right=4pt, top=2pt, bottom=2pt, before skip=4pt, after skip=4pt},
+}
+\newtcolorbox{toolbox}[1]{box, title={#1}}
+\newtcolorbox{trapbox}{trap}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3pt}

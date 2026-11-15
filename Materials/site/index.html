@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mensuration DSE Revision</title>
+<link rel="stylesheet" href="css/fonts.css">
+<link rel="stylesheet" href="vendor/katex/katex.min.css">
+<style>
+:root {
+  color-scheme: light;
+  --blue: #004898; --red: #d7000f; --white: #fff; --ink: #231f20; --muted: #6d6e71; --frame: #a7a9ac; --wash: #f2f5fa;
+  --sans: "Noto Sans HK", "Microsoft JhengHei", sans-serif; --display: Oswald, "Arial Narrow", sans-serif;
+}
+* { box-sizing: border-box; border-radius: 0; }
+html { font-size: 17px; }
+body { margin: 0; background: var(--white); color: var(--ink); font-family: var(--sans); font-weight: 300; line-height: 1.6; }
+strong, b { font-weight: 500; }
+a { color: var(--blue); }
+:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
+header.hero { background: var(--blue); color: var(--white); padding: 2.4rem 16px 2rem; border-bottom: 3px solid var(--red); }
+.wrap { max-width: 920px; margin: 0 auto; padding: 0 16px; }
+header.hero .wrap { padding: 0; }
+.kicker { font-size: .85rem; letter-spacing: .06em; margin: 0; }
+h1 { font-family: var(--display); font-weight: 400; font-size: 3.2rem; margin: .2rem 0 .4rem; line-height: 1.1; }
+.hero p { margin: 0 0 1rem; max-width: 40rem; }
+.links { display: flex; gap: .6rem; flex-wrap: wrap; }
+.links a { color: var(--white); border: 1px solid var(--white); padding: .3rem .9rem; text-decoration: none; font-weight: 400; }
+.links a:hover { background: var(--white); color: var(--blue); }
+nav.toc { border-bottom: 1px solid var(--frame); background: var(--white); position: sticky; top: 0; z-index: 3; }
+nav.toc .wrap { display: flex; gap: 1.1rem; overflow-x: auto; white-space: nowrap; padding-top: .5rem; padding-bottom: .5rem; font-size: .92rem; }
+nav.toc a { text-decoration: none; font-weight: 400; }
+section { padding: 1.8rem 0 .6rem; scroll-margin-top: 2.2rem; }
+h2 { font-family: var(--display); font-weight: 400; color: var(--blue); font-size: 1.9rem; margin: 0 0 .8rem; padding-bottom: .3rem; border-bottom: 2px solid var(--red); }
+h3 { font-family: var(--display); font-weight: 400; color: var(--blue); font-size: 1.3rem; margin: 1.2rem 0 .4rem; }
+p { margin: .5rem 0; }
+.scroll { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: .95rem; }
+th, td { text-align: left; padding: .45rem .6rem; border-bottom: 1px solid var(--frame); vertical-align: top; }
+th { color: var(--blue); font-weight: 400; font-size: .85rem; border-bottom: 2px solid var(--blue); }
+td.c { text-align: center; }
+.yr { color: var(--muted); font-size: .85rem; }
+.grid3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+.card { border-top: 2px solid var(--blue); padding: .6rem 0 0; }
+.card h3 { margin-top: 0; }
+.box { border: 1px solid var(--blue); padding: .9rem 1.1rem; margin: .8rem 0; }
+.box ol { margin: 0; padding-left: 1.3rem; }
+.mk { float: right; color: var(--blue); font-family: var(--display); }
+.trap { border-left: 3px solid var(--red); padding: .3rem 0 .3rem 1rem; margin: .8rem 0; }
+.trap ul { margin: .2rem 0; padding-left: 1.1rem; }
+.tag { display: inline-block; font-family: var(--display); color: var(--blue); border: 1px solid var(--blue); padding: 0 .45rem; font-size: .85rem; margin-right: .5rem; line-height: 1.5; }
+.m .katex { white-space: nowrap; }
+.dq .tag { display: table; margin: 0 0 .5rem; }
+.quote { background: var(--wash); padding: .5rem .9rem; margin: .4rem 0; }
+.two { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1.4rem; }
+/* Drill */
+#drill { border: 1px solid var(--blue); padding: 1.1rem 1.2rem; margin: .8rem 0 1rem; }
+.dmode { display: flex; gap: .4rem; flex-wrap: wrap; margin-bottom: .8rem; }
+.dmode button, .dnext { font: inherit; font-weight: 400; background: var(--white); border: 1px solid var(--blue); color: var(--blue); padding: .25rem .9rem; cursor: pointer; }
+.dmode button.on, .dmode button:hover, .dnext:hover { background: var(--blue); color: var(--white); }
+.dq { font-size: 1.08rem; margin: .4rem 0 .9rem; }
+.dopts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .6rem; }
+.opt { font: inherit; text-align: left; background: var(--white); border: 1px solid var(--frame); padding: .55rem .8rem; cursor: pointer; color: var(--ink); min-height: 3rem; }
+.opt b { font-family: var(--display); font-weight: 400; color: var(--blue); margin-right: .6rem; }
+.opt:hover:not(:disabled) { border-color: var(--blue); }
+.opt:disabled { cursor: default; }
+.opt.right { border: 2px solid var(--blue); background: var(--wash); }
+.opt.wrong { border: 2px solid var(--red); }
+.dfeed { margin-top: .9rem; padding-top: .7rem; border-top: 1px solid var(--frame); }
+.trapline { display: inline-block; margin-top: .4rem; border-left: 3px solid var(--red); padding-left: .7rem; }
+.dfoot { display: flex; justify-content: space-between; align-items: center; gap: 1rem; margin-top: .9rem; flex-wrap: wrap; }
+.dscore { color: var(--muted); font-size: .9rem; font-variant-numeric: tabular-nums; }
+footer { border-top: 2px solid var(--red); margin-top: 2rem; padding: 1rem 0 2rem; color: var(--muted); font-size: .85rem; }
+.dfig { display: block; max-width: 100%; height: auto; margin: .3rem 0 .6rem; }
+.dfig text { font-family: "Times New Roman", serif; fill: var(--ink); }
+.mini { width: 100%; max-width: 420px; height: auto; display: block; margin: .4rem 0; }
+@media (max-width: 700px) {
+  html { font-size: 16px; }
+  h1 { font-size: 2.4rem; }
+  .grid3, .two { grid-template-columns: 1fr; }
+  .dopts { grid-template-columns: 1fr 1fr; }
+}
+@media print { nav.toc, #drill, .links { display: none; } header.hero { background: none; color: var(--ink); } }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="kicker">F6 MATHEMATICS · DSE REVISION</p>
+    <h1>Mensuration</h1>
+    <p><strong>Sectors, solids and similar figures</strong>: in <strong>every DSE from 2012 to 2026</strong>, with a 5–9 mark question in Paper 1 (114 marks over the 15 papers) and usually three MCs in Paper 2. No formulas are printed in the paper, so the kit below must be memorised.</p>
+    <div class="links">
+      <a href="#drill-sec">MC drill</a>
+      <a href="../print/revision-notes.pdf">Notes (PDF)</a>
+      <a href="../print/worksheet.pdf">Worksheet (PDF)</a>
+      <a href="live.html">Live version</a>
+    </div>
+  </div>
+</header>
+
+<nav class="toc" aria-label="Sections"><div class="wrap">
+  <a href="#map">Recent papers</a><a href="#kit">Formula kit</a><a href="#p2">Paper 2</a><a href="#p1">Ways in</a><a href="#last">Last part</a><a href="#twists">Level 5</a><a href="#traps">Traps</a><a href="#drill-sec">Drill</a><a href="#exam">In the exam</a>
+</div></nav>
+
+<main class="wrap">
+
+<section id="map">
+  <h2>1 · Recent papers at a glance</h2>
+  <div class="scroll"><table>
+    <tr><th>Year</th><th>P1</th><th>Marks</th><th>The situation</th><th>Last part asks</th><th>P2 shapes</th></tr>
+    <tr><td>2012</td><td>Q9, Q12</td><td class="c">5, 7</td><td>trapezium prism; cone in a hemispherical vessel</td><td>milk left <span class="m">\gt 0.3\text{ m}^3</span>?</td><td class="c">A B E</td></tr>
+    <tr><td>2013</td><td>Q13</td><td class="c">7</td><td>2 cylinders recast into 27</td><td>similar?</td><td class="c">B C E E</td></tr>
+    <tr><td>2014</td><td>Q14</td><td class="c">8</td><td>water in a frustum vessel</td><td>water <span class="m">\gt 0.1\text{ m}^3</span>?</td><td class="c">E</td></tr>
+    <tr><td>2015</td><td>Q9</td><td class="c">5</td><td>sector</td><td>perimeter</td><td class="c">C E</td></tr>
+    <tr><td>2016</td><td>Q11</td><td class="c">6</td><td>milk added to an inverted cone</td><td>wet surface <span class="m">\ge 800\text{ cm}^2</span>?</td><td class="c">C A E</td></tr>
+    <tr><td>2017</td><td>Q12</td><td class="c">7</td><td>prism recast into 2 similar pyramids</td><td>TSA of the smaller</td><td class="c">D E</td></tr>
+    <tr><td>2018</td><td>Q14</td><td class="c">9</td><td>cylinder of water poured into a cone</td><td>overflow?</td><td class="c">C E A</td></tr>
+    <tr><td>2019</td><td>Q9</td><td class="c">5</td><td>two spheres, <span class="m">R = 2r</span></td><td>sum of surface areas</td><td class="c">C E</td></tr>
+    <tr><td>2020</td><td>Q12</td><td class="c">6</td><td>cone cut into 3 equal heights</td><td>CSA of the middle part</td><td class="c">A D E E</td></tr>
+    <tr><td>2021</td><td>Q14</td><td class="c">8</td><td>cylinder <span class="m">X</span>, cones <span class="m">Y</span> and <span class="m">Z</span></td><td>similar?; CSA claim</td><td class="c">C D A</td></tr>
+    <tr><td>2022</td><td>Q13</td><td class="c">7</td><td>spheres recast into 2 cones</td><td>similar?</td><td class="c">D B E</td></tr>
+    <tr><td>2023</td><td>Q14</td><td class="c">8</td><td>cone cut; CSA of frustum <span class="m">= 15\times</span></td><td>diameter of recast spheres</td><td class="c">D B E</td></tr>
+    <tr><td>2024</td><td>Q13</td><td class="c">7</td><td>square pyramid cut into a frustum</td><td>similar?</td><td class="c">A D E</td></tr>
+    <tr><td>2025</td><td>Q14</td><td class="c">9</td><td>cone frustum recast into a cube</td><td>cube's TSA larger?</td><td class="c">A D E</td></tr>
+    <tr><td>2026</td><td>Q13</td><td class="c">8</td><td>sphere recast into 3 similar cylinders</td><td>TSA claim</td><td class="c">A C E</td></tr>
+  </table></div>
+  <p><strong>The pattern:</strong> Paper 1 is almost always <em>one solid changed into another</em> (recast, poured, cut by a plane) and ends with a yes/no part: a claim, "similar?" or "overflow?". The area-ratio MC (shape E) was in 14 of the 15 papers.</p>
+  <p class="yr">2012 also had Q11(b) (2 marks): similar cans, volume ×8 so area ×4. 2013 P2 Q12 is a map scale.</p>
+</section>
+
+<section id="kit">
+  <h2>2 · The formula kit</h2>
+  <p>None of this is printed in the paper.</p>
+  <div class="scroll"><table>
+    <tr><th>Figure</th><th>Volume / length</th><th>Surface</th></tr>
+    <tr><td>Sector, angle <span class="m">\theta</span></td><td>arc <span class="m">\ell = \dfrac{\theta}{360^\circ}\times 2\pi r</span></td><td>area <span class="m">= \dfrac{\theta}{360^\circ}\times\pi r^2 = \tfrac12 r\ell</span>; perimeter <span class="m">= 2r + \ell</span></td></tr>
+    <tr><td>Segment</td><td colspan="2">sector − triangle <span class="m">= \dfrac{\theta}{360^\circ}\pi r^2 - \tfrac12 r^2\sin\theta</span>; major segment = circle − minor</td></tr>
+    <tr><td>Prism, cylinder</td><td>base area × height; <span class="m">\pi r^2 h</span></td><td>cylinder: CSA <span class="m">2\pi rh</span>, TSA <span class="m">2\pi r^2 + 2\pi rh</span></td></tr>
+    <tr><td>Pyramid, cone</td><td><span class="m">\tfrac13</span> × base area × height; <span class="m">\tfrac13\pi r^2 h</span></td><td>cone: CSA <span class="m">\pi r\ell</span> with <strong>slant height</strong> <span class="m">\ell = \sqrt{r^2 + h^2}</span></td></tr>
+    <tr><td>Sphere, hemisphere</td><td><span class="m">\tfrac43\pi r^3</span>; <span class="m">\tfrac23\pi r^3</span></td><td>sphere <span class="m">4\pi r^2</span>; hemisphere CSA <span class="m">2\pi r^2</span>, <strong>TSA <span class="m">3\pi r^2</span></strong></td></tr>
+    <tr><td>Frustum</td><td>big − small, or <span class="m">V_{\text{big}}(1 - k^3)</span></td><td>CSA <span class="m">= \text{CSA}_{\text{big}}(1 - k^2)</span>; TSA adds <strong>both</strong> circles</td></tr>
+  </table></div>
+  <div class="box"><strong>The one rule.</strong> Similar figures with linear ratio <span class="m">k</span>: lengths <span class="m">\times k</span>, areas <span class="m">\times k^2</span>, volumes <span class="m">\times k^3</span>. <strong>Always go through <span class="m">k</span>:</strong> square-root an area ratio, cube-root a volume ratio, then raise to the power you need.</div>
+</section>
+
+<section id="p2">
+  <h2>3 · Paper 2: five MC shapes</h2>
+  <div class="scroll"><table>
+    <tr><th>Shape</th><th>Real example</th><th>Key move</th></tr>
+    <tr><td><strong>A</strong> Sector</td><td>Perimeter <span class="m">k\text{ cm}</span>, area <span class="m">3k\text{ cm}^2</span>, <span class="m">r = 14</span>; arc? <span class="yr">2026 · also 2012, 2016, 2018, 2020, 2021, 2024, 2025</span> <span class="tag">WS: A1, A2</span></td><td>Area <span class="m">= \tfrac12 r\ell</span> skips the angle: <span class="m">7\ell = 3k</span> and <span class="m">28 + \ell = k</span>, so <span class="m">\ell = 21</span>. "Which is/are true?": test each statement.</td></tr>
+    <tr><td><strong>B</strong> Segment</td><td>Diameter 10, chord 8; major segment? <span class="yr">2022 · also 2012, 2013, 2023</span> <span class="tag">WS: A3</span></td><td>Centre to chord <span class="m">\sqrt{5^2 - 4^2} = 3</span>; angle <span class="m">2\sin^{-1}\tfrac45</span>; segment = sector ± triangle.</td></tr>
+    <tr><td><strong>C</strong> One solid</td><td>Square pyramid, side 18, height 12; TSA? <span class="yr">2019 · also 2013, 2015, 2016, 2018, 2021, 2026</span> <span class="tag">WS: A4, A5</span></td><td>One Pythagoras step first (slant height 15), then the formula. Frustum: <span class="m">V(1 - k^3)</span>.</td></tr>
+    <tr><td><strong>D</strong> Two solids in letters</td><td>Cylinder radius <span class="m">5a</span>, height <span class="m">7b</span>, volume 525; cone radius <span class="m">7a</span>, height <span class="m">5b</span>? <span class="yr">2020 · also 2017, 2021–2025</span> <span class="tag">WS: A6, A7</span></td><td><strong>Do not find <span class="m">a</span> and <span class="m">b</span>.</strong> The block <span class="m">\pi a^2 b = 3</span>, so the cone is <span class="m">\tfrac{245}{3}\pi a^2 b = 245</span>.</td></tr>
+    <tr><td><strong>E</strong> Area ratios</td><td>Parallelogram, <span class="m">BE : EC = 5 : 3</span>, area of <span class="m">\triangle ABF</span> given; <span class="m">CDFE</span>? <span class="yr">2018 · every paper except 2021</span> <span class="tag">WS: A8</span></td><td>Similar triangles from parallel lines give the <span class="m">k^2</span> step; then <em>same height ⇒ area ∝ base</em> for the rest.</td></tr>
+  </table></div>
+  <div class="trap"><strong>MC traps.</strong> The wrong options are the classic slips: the arc alone for the perimeter, the height for the slant height, <span class="m">k^2</span> for <span class="m">k^3</span>, the small cone for the frustum, the minor segment for the major, and a forgotten <span class="m">\tfrac13</span>.</div>
+</section>
+
+<section id="p1">
+  <h2>4 · Paper 1: five ways in</h2>
+  <p>Read what the question <em>gives</em> you, then write the first line that earns the method mark.</p>
+  <div class="scroll"><table>
+    <tr><th>The question gives</th><th>Your first line</th><th>Years</th></tr>
+    <tr><td>"melted and recast", "poured into"</td><td><strong>Volume is conserved:</strong> <span class="m">\tfrac43\pi(10)^3</span> = the total of the new solids <span class="tag">WS: B2, B5, B6</span></td><td>2013, 2017, 2018, 2022, 2023, 2025, 2026</td></tr>
+    <tr><td>a ratio of areas (or radii) of similar solids</td><td><span class="m">k = \sqrt{\tfrac49} = \tfrac23</span>, so volumes <span class="m">\tfrac{8}{27}</span>: <span class="m">V + \tfrac{8}{27}V = 1680</span> <span class="tag">WS: B2</span></td><td>2013, 2017, 2019, 2022, 2023, 2026</td></tr>
+    <tr><td>a cone or pyramid cut by a plane parallel to the base</td><td><span class="m">V_X = V(1 - k^3)</span>, <span class="m">k = \tfrac{\text{small height}}{\text{whole height}}</span>, both <strong>from the vertex</strong> <span class="tag">WS: B3, B4, B6</span></td><td>2012, 2014, 2020, 2023, 2024, 2025</td></tr>
+    <tr><td>liquid in an inverted cone</td><td>radius = (fixed ratio) × depth: the liquid is a similar cone, <span class="m">V \propto h^3</span> <span class="tag">WS: B1, B5</span></td><td>2014, 2016, 2018</td></tr>
+    <tr><td>"Are <span class="m">X</span> and <span class="m">Y</span> similar?"</td><td>Compare two ratios: <span class="m">\tfrac{V_1}{V_2}</span> with <span class="m">\left(\tfrac{r_1}{r_2}\right)^3</span>, or <span class="m">\tfrac{A_1}{A_2}</span> with <span class="m">\left(\tfrac{h_1}{h_2}\right)^2</span> <span class="tag">WS: B4</span></td><td>2013, 2021, 2022, 2024</td></tr>
+  </table></div>
+</section>
+
+<section id="last">
+  <h2>5 · The last part: claims, "similar?" and "overflow?"</h2>
+  <div class="box">
+    <ol>
+      <li><strong>Get both numbers</strong> you must compare, each from a line of working; keep <span class="m">\pi</span> until the end. <span class="mk">1M</span></li>
+      <li><strong>Compare in the same units</strong> (<span class="m">1\text{ m}^3 = 10^6\text{ cm}^3</span>) and write the inequality. <span class="mk">1M</span></li>
+      <li><strong>Conclude in words.</strong> "Thus, the claim is disagreed." / "Thus, the water will overflow." <span class="mk">1A f.t.</span></li>
+    </ol>
+  </div>
+  <h3>The similarity test, written the DSE way</h3>
+  <p class="quote">"<span class="m">\left(\dfrac{\text{height of } X}{\text{height of } Z}\right)^2 = \left(\dfrac63\right)^2 = 4</span> and <span class="m">\dfrac{\text{TSA of } X}{\text{TSA of } Z} = \dfrac{8640}{960} = 9</span>. Since <span class="m">9 \ne 4</span>, <span class="m">X</span> and <span class="m">Z</span> are not similar." <span class="yr">2024 P1 Q13(b)</span></p>
+  <p>Equal ratios do not prove similarity on their own. In all four recent "similar?" parts the answer was <strong>no</strong>, shown by one pair of ratios that disagree.</p>
+</section>
+
+<section id="twists">
+  <h2>6 · The Level 5 twists</h2>
+  <div class="scroll"><table>
+    <tr><th>Twist</th><th>The move</th></tr>
+    <tr><td><strong>Frustum = 15 × cone</strong> <span class="yr">2023</span> <span class="tag">WS: B3</span></td><td>The <em>whole</em> cone is 16 × the small one, so <span class="m">k^2 = \tfrac1{16}</span>, <span class="m">k = \tfrac14</span>, and <span class="m">V_Y = V\left(1 - \tfrac1{64}\right)</span>.</td></tr>
+    <tr><td><strong>Three equal heights</strong> <span class="yr">2020</span></td><td>Cones from the vertex have <span class="m">k = \tfrac13, \tfrac23, 1</span>: middle part <span class="m">= V\cdot\tfrac{2^3 - 1^3}{3^3}</span>, its CSA <span class="m">= \text{CSA}\cdot\tfrac{2^2 - 1^2}{3^2}</span>.</td></tr>
+    <tr><td><strong>Heights from the vertex</strong> <span class="yr">2014</span></td><td>Water 28 cm deep in a frustum vessel: the water's cone has height <span class="m">96 - 60 + 28 = 64</span>, not 28.</td></tr>
+    <tr><td><strong>Shared total volume</strong> <span class="yr">2026, 2017</span> <span class="tag">WS: B2</span></td><td><span class="m">r_1 : r_2 : r_3 = 2 : 3 : 5</span>, so <span class="m">V_Y = \text{total}\times\tfrac{27}{8 + 27 + 125}</span>.</td></tr>
+    <tr><td><strong>Cone inside a hemisphere</strong> <span class="yr">2012</span></td><td>Pythagoras in the hemisphere, <span class="m">\sqrt{60^2 - 48^2} = 36</span>, gives the depth of the submerged frustum.</td></tr>
+    <tr><td><strong>A quadratic in an area</strong> <span class="yr">2023 P2</span></td><td>Similar triangles give <span class="m">(90 - A)^2 = 32A</span>; reject the root with <span class="m">A \gt 90</span>.</td></tr>
+  </table></div>
+</section>
+
+<section id="traps">
+  <h2>7 · Traps that cost marks</h2>
+  <div class="trap"><ul>
+    <li><strong>Area ratio straight into volume.</strong> Areas <span class="m">4 : 9</span> give volumes <span class="m">8 : 27</span>, not <span class="m">16 : 81</span> (2017, 2022).</li>
+    <li><strong>The frustum's own height in <span class="m">k</span>.</strong> Measure from the vertex: <span class="m">\tfrac{18}{24}</span> (2024), <span class="m">\tfrac{64}{96}</span> (2014).</li>
+    <li><strong>15 times, so 16 parts</strong> (2023).</li>
+    <li><strong>Slant height, not height,</strong> in <span class="m">\pi r\ell</span> and on a pyramid's faces.</li>
+    <li><strong>"Total" means every face:</strong> both circles of a frustum (2025), the flat face of a hemisphere, the base of a pyramid.</li>
+    <li><strong>Perimeter of a sector</strong> is <span class="m">2r + \ell</span> (2015, 2021, 2025, 2026).</li>
+    <li><strong>Units.</strong> <span class="m">\text{cm}^3 \to \text{m}^3</span> is <span class="m">\div 10^6</span> (2012, 2014); a map scale <span class="m">1 : 500</span> makes areas <span class="m">1 : 250\,000</span> (2013).</li>
+    <li><strong>No comparison, no conclusion, no 1A.</strong></li>
+  </ul></div>
+</section>
+
+<section id="drill-sec">
+  <h2>8 · MC drill</h2>
+  <p>Endless Paper 2 twins, new numbers every time. Aim for 75 seconds each, and a streak of 10.</p>
+  <div id="drill">
+    <div class="dmode" role="group" aria-label="Choose a shape">
+      <button type="button" data-mode="mixed" class="on">Mixed</button>
+      <button type="button" data-mode="A">A Sector</button>
+      <button type="button" data-mode="B">B Segment</button>
+      <button type="button" data-mode="C">C Frustum</button>
+      <button type="button" data-mode="D">D Letters</button>
+      <button type="button" data-mode="E">E Area ratios</button>
+    </div>
+    <div class="dq" aria-live="polite"></div>
+    <div class="dopts"></div>
+    <div class="dfeed" hidden aria-live="polite"></div>
+    <div class="dfoot"><span class="dscore"></span><button type="button" class="dnext" hidden>Next question</button></div>
+  </div>
+</section>
+
+<section id="exam">
+  <h2>9 · In the exam</h2>
+  <ul>
+    <li><strong>Time.</strong> About 75 seconds per MC; about one minute per mark in Paper 1.</li>
+    <li><strong>Keep <span class="m">\pi</span> and exact values</strong> through every line; round only in the final comparison.</li>
+    <li><strong>Draw the cross-section</strong> of a cone, frustum or vessel: one right-angled triangle with the radius, height and slant height shows every ratio.</li>
+    <li><strong>Follow-through.</strong> A wrong volume in (a) still earns the method marks and the 1A f.t. later. Always finish the comparison.</li>
+  </ul>
+</section>
+
+</main>
+<footer><div class="wrap">F6 Mathematics · Mensuration revision. Past-paper questions are quoted from the HKDSE Mathematics Compulsory Part for revision.</div></footer>
+
+<script src="vendor/katex/katex.min.js"></script>
+<script src="js/math.js"></script>
+<script src="js/drill.js"></script>
+</body>
+</html>

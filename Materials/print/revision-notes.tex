@@ -1,0 +1,152 @@
+% Mensuration: DSE revision notes (built from DSE 2012-2026 Paper 1 and Paper 2).
+\documentclass[10pt]{article}
+\input{common}
+\usepackage{fancyhdr}
+\pagestyle{fancy}\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[L]{\small\color{wygrey}F6 Mathematics \textbar\ Mensuration revision notes \quad {\footnotesize(Web notes \& MC drill: \texttt{site/index.html})}}
+\fancyfoot[R]{\small\color{wygrey}Page \thepage\ of \pageref{LastPage}}
+\usepackage{needspace}
+\newcommand{\head}[1]{\par\needspace{9\baselineskip}\vspace{6pt}{\color{wyblue}\large\bfseries #1}\par\vspace{-2pt}{\color{wyred}\rule{\linewidth}{0.6pt}}\par}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcommand{\cm}[1]{\,\text{cm}^{#1}}
+
+\begin{document}
+
+{\color{wyblue}\large\textbf{WAH YAN COLLEGE, HONG KONG}}\hfill\textbf{F6 Mathematics}\par
+\vspace{2pt}{\color{wyred}\rule{\linewidth}{1pt}}\par
+{\LARGE\textbf{Mensuration: what the DSE actually asks}}\par
+\vspace{1pt}
+{\small\color{wygrey}\textbf{Scope:} arcs and sectors, segments, prisms, cylinders, pyramids, cones, frustums and spheres, and the ratios of lengths, areas and volumes of similar figures (including area ratios in rectilinear figures).}\par
+\vspace{2pt}
+{\bfseries Mensuration is in every DSE from 2012 to 2026:} one 5--9 mark question in Paper 1 (114 marks over the 15 papers) and usually three MCs in Paper 2 (42 MCs in all). No formulas are printed in the paper: the kit in Section 2 must be memorised.
+
+\head{1\quad Recent papers at a glance}
+{\small
+\begin{tabularx}{\linewidth}{@{}c c c L L l@{}}
+\toprule
+Year & P1 Q & Marks & The situation & P1 last part asks & P2 MC shapes\\
+\midrule
+2012 & 9, 12 & 5, 7 & trapezium prism; cone in a hemispherical vessel & milk left $> 0.3\text{ m}^3$? & A B E\\
+2013 & 13 & 7 & 2 cylinders recast into 27 & similar? & B C E E\\
+2014 & 14 & 8 & water in a frustum vessel & water $> 0.1\text{ m}^3$? & E\\
+2015 & 9 & 5 & sector & perimeter & C E\\
+2016 & 11 & 6 & milk added to an inverted cone & wet surface $\ge 800\cm2$? & C A E\\
+2017 & 12 & 7 & prism recast into 2 similar pyramids & TSA of the smaller & D E\\
+2018 & 14 & 9 & cylinder of water poured into a cone & overflow? & C E A\\
+2019 & 9 & 5 & two spheres, $R = 2r$ & sum of surface areas & C E\\
+2020 & 12 & 6 & cone cut into 3 equal heights & CSA of the middle part & A D E E\\
+2021 & 14 & 8 & cylinder $X$, cones $Y$ and $Z$ & similar?; CSA claim & C D A\\
+2022 & 13 & 7 & spheres recast into 2 cones & similar? & D B E\\
+2023 & 14 & 8 & cone cut; CSA of frustum $= 15\times$ & diameter of recast spheres & D B E\\
+2024 & 13 & 7 & square pyramid cut into a frustum & similar? & A D E\\
+2025 & 14 & 9 & cone frustum recast into a cube & cube's TSA larger? & A D E\\
+2026 & 13 & 8 & sphere recast into 3 similar cylinders & TSA claim & A C E\\
+\bottomrule
+\end{tabularx}}
+
+{\small 2012 also had Q11(b) (2 marks): similar cans, volume $\times 8$ so area $\times 4$. 2013 P2 Q12 is a map scale (similar figures).}
+
+\textbf{The pattern:} Paper 1 is almost always \emph{one solid changed into another} (recast, poured, cut by a plane) and finishes with a yes/no part: a claim, ``similar?'' or ``overflow?''. Paper 2's area-ratio MC (shape E) was in 14 of the 15 papers.
+
+\head{2\quad The formula kit (none of it is given in the paper)}
+{\small
+\begin{tabularx}{\linewidth}{@{}l L L@{}}
+\toprule
+Figure & Volume & Surface\\
+\midrule
+Sector, angle $\theta$ & arc $\ell = \dfrac{\theta}{360^\circ}\times 2\pi r$ & area $= \dfrac{\theta}{360^\circ}\times\pi r^2 = \dfrac12 r\ell$; \ perimeter $= 2r + \ell$\\[8pt]
+Segment & \multicolumn{2}{l}{sector $-$ triangle $= \dfrac{\theta}{360^\circ}\pi r^2 - \dfrac12 r^2\sin\theta$ \quad(major segment $=$ circle $-$ minor)}\\[6pt]
+Prism, cylinder & base area $\times$ height; \ $\pi r^2 h$ & cylinder: CSA $2\pi rh$, TSA $2\pi r^2 + 2\pi rh$\\[3pt]
+Pyramid, cone & $\frac13\times$ base area $\times$ height; \ $\frac13\pi r^2 h$ & cone: CSA $\pi r\ell$ with \textbf{slant height} $\ell = \sqrt{r^2 + h^2}$\\[3pt]
+Sphere, hemisphere & $\frac43\pi r^3$; \ $\frac23\pi r^3$ & sphere $4\pi r^2$; hemisphere CSA $2\pi r^2$, \textbf{TSA $3\pi r^2$}\\[3pt]
+Frustum & big $-$ small, or $V_{\text{big}}\,(1 - k^3)$ & CSA $=$ CSA$_{\text{big}}(1 - k^2)$; TSA adds \textbf{both} circles\\
+\bottomrule
+\end{tabularx}}
+
+\begin{toolbox}{The one rule: similar figures, linear ratio $k$}
+lengths $\times k$, \quad areas (base, curved, total) $\times k^2$, \quad volumes (and masses) $\times k^3$.\quad
+\textbf{Always go through $k$:} from an area ratio take the square root, from a volume ratio the cube root, then raise to the power you need. \src{2012, 2013, 2017, 2019, 2022, 2023, 2026}
+\end{toolbox}
+
+\head{3\quad Paper 2: five MC shapes}
+\begin{tabularx}{\linewidth}{@{}l LL@{}}
+\toprule
+Shape & What you see & Key move\\
+\midrule
+\textbf{A} Sector & perimeter $k\cm{}$, area $3k\cm2$, $r = 14$; arc? {\color{wygrey}(2026; also 2012, 2016, 2018, 2020, 2021, 2024, 2025)} \src{WS: A1, A2} & Use area $= \frac12 r\ell$ to skip $\theta$: $7\ell = 3k$ and $28 + \ell = k$, so $\ell = 21$. ``Which is/are true?'' versions: test each statement.\\[30pt]
+\textbf{B} Segment & circle diameter 10, chord 8; major segment? {\color{wygrey}(2022; also 2012, 2013, 2023)} \src{WS: A3} & Centre-to-chord distance $\sqrt{5^2 - 4^2} = 3$; angle at centre $2\sin^{-1}\frac45$; segment $=$ sector $\pm$ triangle.\\[25pt]
+\textbf{C} One solid & square pyramid, side 18, height 12; TSA? {\color{wygrey}(2019; also 2013, 2015, 2016, 2018, 2021, 2026)} \src{WS: A4, A5} & One Pythagoras step first (slant height $\sqrt{9^2 + 12^2} = 15$, a missing side), then the formula. Frustum: $V(1 - k^3)$.\\[25pt]
+\textbf{D} Two solids in letters & cylinder radius $5a$, height $7b$, volume 525; cone radius $7a$, height $5b$? {\color{wygrey}(2020; also 2017, 2021--2025)} \src{WS: A6, A7} & \textbf{Do not find $a$ and $b$.} Find the block $\pi a^2 b = 3$, then the cone is $\frac13\pi(49a^2)(5b) = \frac{245}{3}\pi a^2 b = 245$.\\[30pt]
+\textbf{E} Area ratios & parallelogram, $BE : EC = 5 : 3$, area of $\triangle ABF$ given; area of $CDFE$? {\color{wygrey}(2018; in every paper except 2021)} \src{WS: A8} & Find a pair of similar triangles (from parallel lines) for the $k^2$ step, then \emph{same height $\Rightarrow$ area $\propto$ base} for the rest.\\
+\bottomrule
+\end{tabularx}
+\begin{trapbox}
+\textbf{MC traps.} The wrong options are the classic slips: the arc alone for the perimeter (forgot $2r$), the height for the slant height (2019: 756 uses the height; 540 forgets the base), $k^2$ for $k^3$, the small cone for the frustum, the minor segment for the major, and a forgotten $\frac13$.
+\end{trapbox}
+
+\head{4\quad Paper 1: five ways in}
+Read what the question \emph{gives} you, then write the first line that earns the 1M.
+
+\begin{tabularx}{\linewidth}{@{}>{\hsize=.75\hsize}L>{\hsize=1.25\hsize}L >{\raggedright\arraybackslash}p{2.5cm}@{}}
+\toprule
+The question gives & Your first line & Years\\
+\midrule
+``melted and recast'', ``poured into'' & \textbf{Volume is conserved:} $\frac43\pi(10)^3 = $ total of the new solids; $\pi(8^2)(64) = \frac13\pi r^2 h$ \src{WS: B2, B5, B6} & 2013, 2017, 2018, 2022, 2023, 2025, 2026\\[22pt]
+a ratio of areas (or of radii) of similar solids & $k = \sqrt{\tfrac49} = \tfrac23$, then volumes $k^3 = \tfrac{8}{27}$: \ $V + \frac{8}{27}V = 1680$ \src{WS: B2} & 2013, 2017, 2019, 2022, 2023, 2026\\[18pt]
+a cone or pyramid cut by a plane parallel to the base & $V_X = V\left(1 - k^3\right)$ with $k = \dfrac{\text{small height}}{\text{whole height}}$ (both measured \textbf{from the vertex}) \src{WS: B3, B4, B6} & 2012, 2014, 2020, 2023, 2024, 2025\\[22pt]
+liquid in an inverted cone & radius $=$ (fixed ratio) $\times$ depth, so the liquid is a similar cone: $V \propto h^3$, wet CSA $\propto h^2$ \src{WS: B1, B5} & 2014, 2016, 2018\\[18pt]
+``Are $X$ and $Y$ similar?'' & Compare \emph{two} ratios: $\frac{r_1}{r_2}$ vs $\frac{h_1}{h_2}$, or $\frac{V_1}{V_2}$ vs $\left(\frac{r_1}{r_2}\right)^3$, or $\frac{A_1}{A_2}$ vs $\left(\frac{h_1}{h_2}\right)^2$ \src{WS: B4} & 2013, 2021, 2022, 2024\\
+\bottomrule
+\end{tabularx}
+
+\head{5\quad The last part: claims, ``similar?'' and ``overflow?''}
+\begin{toolbox}{The method for the last part}\raggedright
+\textbf{1. Get both numbers} you must compare, each from a line of working (keep $\pi$ until the end). \mk{1M}\\[4pt]
+\textbf{2. Compare them in the same units:} $1\text{ m}^3 = 10^6\cm3$, $1\text{ m}^2 = 10^4\cm2$; write the inequality ($88272\pi\cm3 \approx 0.277\text{ m}^3 < 0.3\text{ m}^3$). \mk{1M}\\[4pt]
+\textbf{3. Conclude in words:} ``Thus, the claim is disagreed.'' / ``$X$ and $Z$ are not similar.'' / ``Thus, the water will overflow.'' \mk{1A f.t.}
+\end{toolbox}
+
+\textbf{The similarity test, written the DSE way} (2024 P1 Q13(b)):
+\begin{itemize}[leftmargin=*, nosep]
+\item ``$\left(\dfrac{\text{height of } X}{\text{height of } Z}\right)^2 = \left(\dfrac63\right)^2 = 4$ and $\dfrac{\text{TSA of } X}{\text{TSA of } Z} = \dfrac{8640}{960} = 9$. Since $9 \ne 4$, $X$ and $Z$ are not similar.''
+\item Equal ratios do \emph{not} prove similarity on their own; in all four recent ``similar?'' parts the answer was \textbf{no}, shown by one pair of ratios that disagree.
+\end{itemize}
+
+\head{6\quad The Level 5 twists}
+\begin{tabularx}{\linewidth}{@{}l >{\hsize=.75\hsize}L>{\hsize=1.25\hsize}L@{}}
+\toprule
+Twist & What happens & The move\\
+\midrule
+Frustum $= 15\times$ cone {\color{wygrey}(2023)} & CSA of frustum $Y$ is 15 times CSA of cone $X$ & The \emph{whole} cone is $16\times X$, so $k^2 = \frac1{16}$, $k = \frac14$; $V_Y = V\left(1 - \frac1{64}\right)$. \src{WS: B3}\\[22pt]
+Three equal heights {\color{wygrey}(2020)} & cone cut into 3 parts of equal height & Cones from the vertex have $k = \frac13, \frac23, 1$: middle part $= V\cdot\frac{2^3 - 1^3}{3^3}$, its CSA $= \text{CSA}\cdot\frac{2^2 - 1^2}{3^2}$.\\[22pt]
+Heights from the vertex {\color{wygrey}(2014)} & frustum vessel, water 28 cm deep & The water's cone has height $96 - 60 + 28 = 64$, not 28: wet area $= \pi r\ell\cdot\frac{64^2 - 36^2}{96^2}$.\\[18pt]
+Shared total volume {\color{wygrey}(2026, 2017)} & sphere recast into similar cylinders, $r_1 : r_2 : r_3 = 2 : 3 : 5$ & $V_Y = \text{total}\times\dfrac{3^3}{2^3 + 3^3 + 5^3} = \frac{4000\pi}{3}\cdot\frac{27}{160}$. \src{WS: B2}\\[18pt]
+Cone inside a hemisphere {\color{wygrey}(2012)} & the cone pokes above the milk & Pythagoras in the hemisphere ($\sqrt{60^2 - 48^2} = 36$) gives the depth; milk left $=$ hemisphere $-$ submerged frustum.\\[18pt]
+A quadratic in an area {\color{wygrey}(2023 P2)} & $\triangle PXY = 32$, $QRYX = 58$, find $\triangle RSY = A$ & Similar triangles give $(90 - A)^2 = 32A$; reject the root $A > 90$.\\
+\bottomrule
+\end{tabularx}
+
+\head{7\quad Traps that cost marks}
+\begin{trapbox}
+\begin{itemize}[leftmargin=*, nosep]
+\item \textbf{Area ratio straight into volume.} $4 : 9$ is an \emph{area} ratio; the volumes are $8 : 27$, not $16 : 81$ or $4 : 9$ (2017, 2022).
+\item \textbf{The frustum's own height in $k$.} $k$ compares heights measured from the vertex: $\frac{18}{24}$ (2024), $\frac{64}{96}$ (2014).
+\item \textbf{15 times, so 16 parts} (2023). The whole is the frustum \emph{plus} the small cone.
+\item \textbf{Slant height, not height,} in $\pi r\ell$ and on a pyramid's faces (2014, 2016, 2019, 2021, 2024).
+\item \textbf{``Total'' surface area means every face:} both circles of a frustum (2025), the flat face of a hemisphere ($3\pi r^2$), the base of a pyramid (2017, 2019).
+\item \textbf{Perimeter of a sector} is $2r + \ell$ (2015, 2021, 2025, 2026).
+\item \textbf{Units.} $\text{cm}^3 \to \text{m}^3$ is $\div 10^6$ (2012, 2014); a map scale $1 : 500$ makes areas $1 : 250\,000$ (2013).
+\item \textbf{No comparison, no conclusion, no 1A.} Write both numbers, the inequality, then the sentence.
+\end{itemize}
+\end{trapbox}
+
+\head{8\quad In the exam}
+\begin{itemize}[leftmargin=*, nosep]
+\item \textbf{Time:} about 75 seconds per MC; about 1 minute per mark in Paper 1 (5--9 minutes).
+\item \textbf{Keep $\pi$ and exact values} through every line; round only in the final comparison (2025: cube $6(8320\pi)^{2/3} \approx 5284$, frustum $1728\pi \approx 5429$).
+\item \textbf{Draw the cross-section} of a cone, frustum or vessel: a right-angled triangle with the radius, height and slant height marked shows every ratio at once.
+\item \textbf{Follow-through:} a wrong volume in (a) still earns the method marks and the 1A f.t.\ later. Always finish the comparison.
+\end{itemize}
+
+\end{document}

@@ -1,0 +1,15 @@
+# LaTeX build files
+*.aux
+*.log
+*.out
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.toc
+# OS and editor files
+desktop.ini
+Thumbs.db
+.DS_Store
+*.ini
+# The College's own lesson worksheets stay out of the public repository
+Lesson WS/

@@ -1,0 +1,70 @@
+
+% Q16
+\question The perimeter and the area of a sector are $k\text{ cm}$ and $3k\text{ cm}^2$ respectively. If the radius of the sector is $14\text{ cm}$ , then the arc length of the sector is
+\begin{choices}
+    \choice $19\text{ cm}$ .
+    \correctchoice $21\text{ cm}$ .
+    \choice $28\text{ cm}$ .
+    \choice $49\text{ cm}$ .
+\end{choices}
+\begin{solution}
+Let $\ell\text{ cm}$ be the arc length of the sector.
+\begin{align*}
+\text{Area} &= \frac{1}{2}r\ell \implies 3k = \frac{1}{2}(14)\ell \implies k = \frac{7}{3}\ell \mk{1M} \\
+\text{Perimeter} &= 2r + \ell = k \implies 28 + \ell = \frac{7}{3}\ell \implies \frac{4}{3}\ell = 28 \implies \ell = 21\text{ cm} \quad \text{(B)} \mk{1A}
+\end{align*}
+\end{solution}
+
+% Q17
+\question The base of a right pyramid is a rectangle. The length and the breadth of the base are $18\text{ cm}$ and $16\text{ cm}$ respectively. The height of the pyramid is $12\text{ cm}$ . The pyramid is divided into a pyramid $X$ and a frustum $Y$ by a plane parallel to its base. If the breadth of the base of $X$ is $12\text{ cm}$ , then the volume of $Y$ is
+\begin{choices}
+    \choice $486\text{ cm}^3$ .
+    \correctchoice $666\text{ cm}^3$ .
+    \choice $688\text{ cm}^3$ .
+    \choice $944\text{ cm}^3$ .
+\end{choices}
+\begin{solution}
+Total volume of the original pyramid:
+\[ V = \frac{1}{3}(18)(16)(12) = 1152\text{ cm}^3 \mk{1M} \]
+Since the ratio of linear dimensions of $X$ to the whole pyramid is $\dfrac{12}{16} = \dfrac{3}{4}$:
+\[ \text{Volume of } Y = 1152 \times \left[1 - \left(\frac{3}{4}\right)^3\right] = 1152 \times \frac{37}{64} = 666\text{ cm}^3 \quad \text{(B)} \mk{1A} \]
+\end{solution}
+
+% Q18
+\question In the figure, $ABCD$ is a trapezium with $AB$ // $DC$ and $AB : CD = 3 : 5$ . Let $E$ be a point lying on $BD$ such that $BE : ED = 2 : 3$ . It is given that $AB$ // $EF$ and $AD$ // $BF$ . If the area of $\triangle ABD$ is $225\text{ cm}^2$ , then the area of the trapezium $CDEF$ is
+
+\begin{minipage}{0.45\textwidth}
+\begin{choices}
+    \choice $222\text{ cm}^2$ .
+    \choice $260\text{ cm}^2$ .
+    \correctchoice $279\text{ cm}^2$ .
+    \choice $285\text{ cm}^2$ .
+\end{choices}
+\end{minipage}
+\begin{minipage}{0.52\textwidth}
+\centering
+\begin{tikzpicture}[scale=0.8]
+    \coordinate (D) at (0,0);
+    \coordinate (C) at (6,0);
+    \coordinate (A) at (1.5,4);
+    \coordinate (B) at (5.1,4); % AB = 3.6, CD = 6 => 3:5
+    \coordinate (E) at ($(D)!0.6!(B)$); % ED : EB = 3 : 2
+    \coordinate (F) at ($(B) - 0.4*(A) + 0.4*(D)$);
+    \draw[thick] (A) -- (B) -- (C) -- (D) -- cycle;
+    \draw[thick] (B) -- (D);
+    \draw[thick] (E) -- (F) -- (B);
+    \draw[thick] (F) -- (C);
+    \node[above left] at (A) {$A$};
+    \node[above right] at (B) {$B$};
+    \node[below right] at (C) {$C$};
+    \node[below left] at (D) {$D$};
+    \node[below] at (E) {$E$};
+    \node[below left] at (F) {$F$};
+\end{tikzpicture}
+\end{minipage}
+\begin{solution}
+Let $AB = 3k$ and $CD = 5k$, and let $h$ be the height of trapezium $ABCD$.
+\[ \text{Area of } \triangle ABD = \frac{1}{2}(3k)h = 225 \implies kh = 150 \mk{1M} \]
+Since $EF$ // $AB$, $BF$ // $AD$ and $BE : BD = 2 : 5$, by similar triangles we have $EF = \left(1 - \dfrac{3}{5}\right)AB = \dfrac{6}{5}k$, and the height of trapezium $CDEF$ is $\dfrac{3}{5}h$.
+\[ \text{Area of } CDEF = \frac{1}{2}\left(\frac{6}{5}k + 5k\right)\left(\frac{3}{5}h\right) = \frac{93}{50}kh = \frac{93}{50}(150) = 279\text{ cm}^2 \quad \text{(C)} \mk{1A} \]
+\end{solution}

@@ -1,0 +1,62 @@
+
+% Q15
+\question The base of a solid right pyramid is a square of side $18\text{ cm}$ . If the height of the pyramid is $12\text{ cm}$ , then the total surface area of the pyramid is
+\begin{choices}
+    \choice $432\text{ cm}^2$ .
+    \choice $540\text{ cm}^2$ .
+    \choice $756\text{ cm}^2$ .
+    \correctchoice $864\text{ cm}^2$ .
+\end{choices}
+\begin{solution}
+The slant height of each triangular face is $\sqrt{12^2 + 9^2} = 15\text{ cm}$. \\
+Total surface area $= 18^2 + 4 \times \frac{1}{2}(18)(15) = 324 + 540 = 864\text{ cm}^2$ (D).
+\end{solution}
+
+% Q16
+\question In the figure, $ABCD$ is a parallelogram and $AEFG$ is a square. It is given that $BE : EF : FC = 2 : 7 : 3$ . $BD$ cuts $AE$ and $FG$ at the points $X$ and $Y$ respectively. If the area of $\triangle ABX$ is $24\text{ cm}^2$ , then the area of the quadrilateral $CDYF$ is
+
+\begin{minipage}{0.45\textwidth}
+\begin{choices}
+    \choice $54\text{ cm}^2$ .
+    \choice $77\text{ cm}^2$ .
+    \choice $81\text{ cm}^2$ .
+    \correctchoice $87\text{ cm}^2$ .
+\end{choices}
+\end{minipage}
+\begin{minipage}{0.52\textwidth}
+\centering
+\begin{tikzpicture}[scale=0.75]
+    \coordinate (D) at (0,0);
+    \coordinate (G) at (2.5,0);
+    \coordinate (A) at (6.0,0);
+    \coordinate (C) at (1.5,3.5);
+    \coordinate (F) at (2.5,3.5);
+    \coordinate (E) at (6.0,3.5);
+    \coordinate (B) at (7.5,3.5);
+    \path[name path=BD] (B) -- (D);
+    \path[name path=AE] (A) -- (E);
+    \path[name path=FG] (F) -- (G);
+    \path[name intersections={of=BD and AE, by=X}];
+    \path[name intersections={of=BD and FG, by=Y}];
+    \draw[thick] (D) -- (A) -- (B) -- (C) -- cycle;
+    \draw[thick] (A) -- (E);
+    \draw[thick] (F) -- (G);
+    \draw[thick] (B) -- (D);
+    \node[below left] at (D) {$D$};
+    \node[below] at (G) {$G$};
+    \node[below] at (A) {$A$};
+    \node[above] at (C) {$C$};
+    \node[above] at (F) {$F$};
+    \node[above] at (E) {$E$};
+    \node[right] at (B) {$B$};
+    \node[below=10pt, left=-2pt] at (X) {$X$};
+    \node[below right] at (Y) {$Y$};
+\end{tikzpicture}
+\end{minipage}
+\begin{solution}
+Since $BE : EF : FC = 2 : 7 : 3$, we have $BC = AD = 12$ units, $AG = EF = 7$ units, and $DG = 5$ units. \\
+Since $\triangle BEX \sim \triangle DAX$, $BX : XD = BE : DA = 2 : 12 = 1 : 6$. \\
+Thus $\text{Area}(\triangle BCD) = \text{Area}(\triangle ABD) = 7 \times \text{Area}(\triangle ABX) = 7(24) = 168\text{ cm}^2$. \\
+Since $\triangle BFY \sim \triangle DGY$, $FY : YG = BF : DG = 9 : 5$, so $FY = \frac{9}{14}FG$. \\
+Therefore, $\text{Area}(\triangle BFY) = \frac{9}{12} \times \frac{9}{14} \times 168 = 81\text{ cm}^2$, and $\text{Area}(CDYF) = 168 - 81 = 87\text{ cm}^2$ (D).
+\end{solution}

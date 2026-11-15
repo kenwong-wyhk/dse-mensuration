@@ -1,0 +1,590 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mensuration Revision Live</title>
+<link rel="stylesheet" href="css/fonts.css">
+<link rel="stylesheet" href="vendor/katex/katex.min.css">
+<link rel="stylesheet" href="live/live.css">
+<style>
+/* Styles for this lesson only. */
+.foot .where { font-size: 1rem; font-weight: 400; color: var(--ink-muted); letter-spacing: .04em; white-space: nowrap; }
+.eq { font-size: 2rem; line-height: 1.5; }
+.eq.sm { font-size: 1.6rem; }
+.lbl { font-family: var(--font-display); color: var(--blue); font-size: 1.5rem; letter-spacing: .02em; }
+.tag { display: inline-block; font-family: var(--font-display); color: var(--blue); border: 0.07rem solid var(--blue); padding: 0 .6rem; font-size: 1.1rem; margin-right: .6rem; vertical-align: middle; }
+.blue .tag { color: var(--white); border-color: var(--white); }
+.tag.own { display: table; margin: 0 0 .7rem; }   /* the source tag sits on its own row above the question */
+.m .katex { white-space: nowrap; }                /* a piece of maths never breaks across two lines */
+.q { font-size: 1.9rem; line-height: 1.5; max-width: 62rem; }
+.opts { display: flex; gap: 1rem; flex-wrap: wrap; }
+.opts .btn { font-size: 1.6rem; min-width: 9rem; text-align: left; }
+.opts .btn b { font-family: var(--font-display); font-weight: 400; margin-right: .6rem; }
+
+/* Scheme lines: working on the left, marks on the right */
+.ms { display: grid; grid-template-columns: 1fr 7rem; column-gap: 2rem; row-gap: .35rem; align-items: baseline; font-size: 1.5rem; }
+.ms .mk { text-align: right; color: var(--blue); font-family: var(--font-display); font-size: 1.4rem; }
+.ms .part { grid-column: 1 / -1; font-family: var(--font-display); color: var(--blue); font-size: 1.5rem; margin-top: .3rem; }
+.cols2 { display: grid; grid-template-columns: 1.15fr 1fr; gap: 3rem; align-items: start; }
+.cols2 .ms { grid-template-columns: 1fr 4.5rem; column-gap: 1rem; }
+
+/* A problem beside its figure */
+.withfig { display: grid; grid-template-columns: minmax(0, 1fr) 24rem; gap: 2.5rem; align-items: center; }
+.withfig > div { display: flex; flex-direction: column; gap: 1rem; }
+.withfig .q { font-size: 1.6rem; }
+.withfig .big { font-size: 2.6rem; }
+.withfig .node { padding-top: .6rem; }
+.withfig .node h3 { font-size: 1.9rem; }
+.fig { width: 24rem; height: 20.8rem; }
+.fig text { font-size: 30px; }
+.fig .it { font-style: italic; font-family: "Times New Roman", serif; }
+
+/* Tables */
+.tbl { font-size: 1.5rem; }
+.tbl td, .tbl th { text-align: left; padding: .5rem .8rem; vertical-align: top; }
+.tbl th { font-size: 1.2rem; }
+.tbl td.big { font-family: var(--font-display); font-size: 2.2rem; color: var(--blue); width: 5rem; }
+
+/* The k, k^2, k^3 rule */
+.rule3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+.rule3 .node .n { font-size: 2.6rem; }
+.rule3 .node h3 { font-size: 1.7rem; margin: .1rem 0; }
+
+/* Column chart of marks per year */
+#marks { height: 15rem; }
+#marks text { font-size: 20px; }
+.blue #marks text { fill: var(--white); }
+.total { display: flex; align-items: baseline; gap: 1.4rem; }
+.total .count { font-size: 6rem; }
+
+.blue .display { color: var(--white); }
+.list { margin: 0; padding-left: 1.2em; display: flex; flex-direction: column; gap: .5rem; font-size: 1.5rem; }
+.list .tag.own { margin-bottom: .15rem; }
+.traps .row { grid-template-columns: 4rem 1fr; padding: .7rem 0; }
+.traps .who { font-size: 1.6rem; }
+.kval { display: inline-block; width: 6.5rem; font-variant-numeric: tabular-nums; }
+</style>
+</head>
+<body data-reading="index.html">
+
+<!-- 1. Title -->
+<section class="scene blue title">
+  <span class="cross-v"></span><span class="cross-h"></span>
+  <div class="body">
+    <p class="kicker in" style="--i:5">F6 MATHEMATICS · DSE REVISION</p>
+    <h1 class="display huge in" style="--i:7">Mensuration</h1>
+    <p class="in" style="--i:9">In every DSE from 2012 to 2026. A long question and about three MCs. Today we make them safe.</p>
+    <p class="kicker in" style="--i:14">Scroll down to begin</p>
+  </div>
+  <div class="foot bare"><h2></h2></div>
+</section>
+
+<!-- 2. Reveal: Paper 1 marks per year -->
+<section class="scene blue" data-enter="marks">
+  <div class="body">
+    <p class="kicker in" style="--i:1">PAPER 1 MARKS ON MENSURATION, 2012 TO 2026</p>
+    <svg id="marks" class="in" style="--i:2" viewBox="0 0 1000 330" role="img" aria-label="Column chart: Paper 1 mensuration marks in each paper from 2012 to 2026, between 5 and 9 most years and 14 in 2012"></svg>
+    <div class="total in" style="--i:3"><span class="count" data-count="114" data-delay="2800">0</span><span>Paper 1 marks in 15 papers, plus about three MCs in Paper 2 every year</span></div>
+    <p class="display big" data-step="1">Almost always: one solid changed into another.</p>
+  </div>
+  <div class="foot"><h2>Every year of the DSE</h2></div>
+</section>
+
+<!-- 3. Today -->
+<section class="scene">
+  <div class="body">
+    <p class="display big blue-text in" style="--i:1">Level 5 means not one mark dropped here.</p>
+    <div class="cycle in" style="--n:5; --i:2">
+      <div class="node"><div class="n">1</div><h3>rule</h3><p>lengths <span class="m">k</span>, areas <span class="m">k^2</span>, volumes <span class="m">k^3</span></p></div>
+      <div class="node"><div class="n">5</div><h3>MC shapes</h3><p>every recent Paper 2 question</p></div>
+      <div class="node"><div class="n">5</div><h3>ways in</h3><p>the first line of Paper 1</p></div>
+      <div class="node"><div class="n">1</div><h3>method</h3><p>for every claim, "similar?" and "overflow?"</p></div>
+      <div class="node"><div class="n">3</div><h3>twists</h3><p>the 2020, 2023 and 2024 Level 5 parts</p></div>
+    </div>
+  </div>
+  <div class="foot"><span class="where">F6 Mathematics · Mensuration</span><h2>Today</h2></div>
+</section>
+
+<!-- 4. The one rule, with similar cones growing -->
+<section class="scene" data-enter="grow">
+  <div class="body">
+    <div class="withfig">
+      <div>
+        <p class="display big blue-text in" style="--i:1">Similar solids: one number, <span class="m">k</span>.</p>
+        <p class="in" style="--i:2">Every length is multiplied by <span class="m">k</span>. <span class="lbl">k =</span> <span class="lbl kval" id="kNow">1.00</span></p>
+        <div class="rule3">
+          <div class="node" data-step="1"><div class="n"><span class="m">k</span></div><h3>lengths</h3><p>radius, height, slant height</p></div>
+          <div class="node" data-step="2"><div class="n"><span class="m">k^2</span></div><h3>areas</h3><p>base, curved, total</p></div>
+          <div class="node" data-step="3"><div class="n"><span class="m">k^3</span></div><h3>volumes</h3><p>and masses</p></div>
+        </div>
+        <p class="note" data-step="3">Square-root an area ratio, cube-root a volume ratio.</p>
+      </div>
+      <svg id="growFig" class="fig in" style="--i:2" viewBox="0 0 600 520" role="img" aria-label="A small cone and a similar cone growing to twice its size"></svg>
+    </div>
+  </div>
+  <div class="foot"><span class="where">F6 Mathematics · Mensuration</span><h2>1 | The one rule</h2></div>
+</section>
+
+<!-- 5. Commit: 2017 area to volume -->
+<section class="scene">
+  <div class="body">
+    <p class="in" style="--i:1"><span class="tag own">2017 P1 Q12</span>A prism is melted and recast into two <strong>similar</strong> pyramids. The ratio of their base areas is <span class="m">4 : 9</span>.</p>
+    <p class="display big blue-text in" style="--i:2">What is the ratio of their volumes?</p>
+    <div class="btns choice opts in" style="--i:3"><button class="btn"><span class="m">4 : 9</span></button><button class="btn"><span class="m">8 : 27</span></button><button class="btn"><span class="m">16 : 81</span></button></div>
+    <p class="note" data-step="1">The next screen shows the answer. Has everyone chosen?</p>
+  </div>
+  <div class="foot"><span class="where">F6 Mathematics · Mensuration</span><h2>1 | The one rule</h2></div>
+</section>
+
+<!-- 6. Reveal: 8 : 27 -->
+<section class="scene blue">
+  <div class="body">
+    <p class="count in" style="--i:1">8 : 27</p>
+    <p class="display big in" style="--i:2">Areas <span class="m">4 : 9</span>, so <span class="m">k = \sqrt{\tfrac49} = \tfrac23</span>, so volumes <span class="m">k^3 = \tfrac{8}{27}</span>.</p>
+    <p class="in" style="--i:3">2017 then reads <span class="m">V + \tfrac{8}{27}V = 1680</span>, so the larger pyramid is <span class="m">1296\text{ cm}^3</span>.</p>
+  </div>
+  <div class="foot"><h2>1 | The one rule</h2></div>
+</section>
+
+<!-- 7. Paper 2: five shapes -->
+<section class="scene">
+  <div class="body">
+    <p class="display big blue-text in" style="--i:1">Paper 2: five MC shapes.</p>
+    <div class="cycle" style="--n:5">
+      <div class="node" data-step="1"><div class="n">A</div><h3>Sector</h3><p>Area <span class="m">= \tfrac12 r\ell</span>; perimeter <span class="m">= 2r + \ell</span>. 8 papers</p></div>
+      <div class="node" data-step="2"><div class="n">B</div><h3>Segment</h3><p>Sector ± triangle. 2012, 2013, 2022, 2023</p></div>
+      <div class="node" data-step="3"><div class="n">C</div><h3>One solid</h3><p>Pythagoras first, then the formula. 7 papers</p></div>
+      <div class="node" data-step="4"><div class="n">D</div><h3>Letters</h3><p>Find <span class="m">\pi a^2 b</span>, never <span class="m">a</span>, <span class="m">b</span>. 2017, 2020–2025</p></div>
+      <div class="node" data-step="5"><div class="n">E</div><h3>Area ratios</h3><p>Similar triangles, then same heights. 14 of 15 papers</p></div>
+    </div>
+  </div>
+  <div class="foot"><span class="where">F6 Mathematics · Mensuration</span><h2>2 | Paper 2</h2></div>
+</section>
+
+<!-- 8. Problem: 2026 P2 Q16, a sector opening -->
+<section class="scene" data-enter="sector">
+  <div class="body">
+    <div class="withfig">
+      <div>
+        <p class="in" style="--i:1"><span class="tag">2026 P2 Q16</span><button class="timer" data-sec="75" style="display:inline-block;margin:0"></button></p>
+        <p class="q in" style="--i:2">The perimeter and the area of a sector are <span class="m">k\text{ cm}</span> and <span class="m">3k\text{ cm}^2</span> respectively. If the radius of the sector is <span class="m">14\text{ cm}</span>, then the arc length of the sector is</p>
+        <div class="btns choice opts in" style="--i:3"><button class="btn"><b>A</b><span class="m">19\text{ cm}</span></button><button class="btn"><b>B</b><span class="m">21\text{ cm}</span></button><button class="btn"><b>C</b><span class="m">28\text{ cm}</span></button><button class="btn"><b>D</b><span class="m">49\text{ cm}</span></button></div>
+        <p class="note" data-step="1">No angle is given. The next screen shows the answer. Has everyone chosen?</p>
+      </div>
+      <svg id="sectorFig" class="fig in" style="--i:2" viewBox="0 0 600 520" role="img" aria-label="A sector of radius 14 cm opening, with its arc and two radii"></svg>
+    </div>
+  </div>
+  <div class="foot"><span class="where">F6 Mathematics · Mensuration</span><h2>2 | Shape A</h2></div>
+</section>
+
+<!-- 9. Reveal: 21 -->
+<section class="scene">
+  <div class="body">
+    <p class="display big blue-text in" style="--i:1">Skip the angle: area <span class="m">= \tfrac12 r\ell</span>.</p>
+    <div class="eq" data-step="1">Area: <span class="m">\tfrac12(14)\ell = 3k \implies k = \tfrac73\ell</span></div>
+    <div class="eq" data-step="2">Perimeter: <span class="m">28 + \ell = k = \tfrac73\ell</span></div>
+    <div class="eq" data-step="3"><span class="m">\tfrac43\ell = 28 \implies \ell = 21</span> &nbsp;<span class="tag">B</span></div>
+    <p class="note" data-step="3">49 is <span class="m">k</span>, the perimeter: the arc plus <strong>two</strong> radii.</p>
+  </div>
+  <div class="foot"><span class="where">F6 Mathematics · Mensuration</span><h2>2 | Shape A</h2></div>
+</section>
+
+<!-- 10. Work: worksheet A1-A4 -->
+<section class="scene">
+  <div class="body">
+    <div class="row in" style="--i:1"><div><div class="who">Alone</div><button class="timer" data-sec="300"></button></div><p>Worksheet <strong>A1 to A4</strong>: sectors, a segment, a pyramid. About 75 seconds each, as in the exam.</p></div>
+    <div class="row in" style="--i:2"><div><div class="who">Check</div></div><p>Before you choose: perimeter or arc? Height or slant height? Major or minor?</p></div>
+    <p class="note" data-step="1">The next screen shows the answers. Has everyone circled four letters?</p>
+  </div>
+  <div class="foot"><span class="where">F6 Mathematics · Mensuration</span><h2>2 | Your turn</h2></div>
+</section>
+
+<!-- 11. Reveal: A1-A4 -->
+<section class="scene">
+  <div class="body">
+    <table class="tbl">
+      <tr><th>Q</th><th>Answer</th><th>The line that gets it</th></tr>
+      <tr data-step="1"><td>A1</td><td class="big">B</td><td><span class="m">6\ell = 2k</span> and <span class="m">24 + \ell = k</span>, so <span class="m">\ell = 12</span></td></tr>
+      <tr data-step="2"><td>A2</td><td class="big">C</td><td><span class="m">\tfrac{\theta}{360}\pi(18^2 - 12^2) = 30\pi \Rightarrow \theta = 60</span>; III is <span class="m">36 + 6\pi</span></td></tr>
+      <tr data-step="3"><td>A3</td><td class="big">D</td><td>minor <span class="m">\approx 198.74 - 60</span>; major <span class="m">= \pi(13^2) - 138.74 \approx 392</span></td></tr>
+      <tr data-step="4"><td>A4</td><td class="big">B</td><td>slant <span class="m">\sqrt{15^2 + 8^2} = 17</span>; <span class="m">256 + 4\cdot\tfrac12(16)(17) = 800</span></td></tr>
+    </table>
+    <p class="note" data-step="4">The wrong options are the slips: arc for perimeter, minor for major, height for slant height.</p>
+  </div>
+  <div class="foot"><span class="where">F6 Mathematics · Mensuration</span><h2>2 | Answers</h2></div>
+</section>
+
+<!-- 12. Problem: which way in? -->
+<section class="scene">
+  <div class="body">
+    <p class="display big blue-text in" style="--i:1">Paper 1: which way in?</p>
+    <ol class="list in" style="--i:2">
+      <li><span class="tag own">2026</span>A sphere of radius <span class="m">10\text{ cm}</span> is recast into three similar cylinders, <span class="m">r_1 : r_2 : r_3 = 2 : 3 : 5</span>. Volume of <span class="m">Y</span>?</li>
+      <li><span class="tag own">2016</span>Milk is <span class="m">12\text{ cm}</span> deep in an inverted cone. After adding <span class="m">444\pi\text{ cm}^3</span> it is <span class="m">16\text{ cm}</span> deep. Final volume?</li>
+      <li><span class="tag own">2024</span>A square pyramid, side <span class="m">64</span>, height <span class="m">24</span>, is cut into a frustum <span class="m">X</span> and a pyramid of height <span class="m">18</span>. Volume of <span class="m">X</span>?</li>
+      <li><span class="tag own">2021</span>Cone <span class="m">Y</span>: radius <span class="m">10</span>, volume <span class="m">800\pi</span>. Cone <span class="m">Z</span>: radius <span class="m">20</span>, volume <span class="m">2800\pi</span>. Similar?</li>
+    </ol>
+    <p class="note" data-step="1">Write only the first line for each. The next screen shows them.</p>
+  </div>
+  <div class="foot"><span class="where">F6 Mathematics · Mensuration</span><h2>3 | Ways in</h2></div>
+</section>
+
+<!-- 13. Reveal: the first lines -->
+<section class="scene">
+  <div class="body">
+    <table class="tbl">
+      <tr><th></th><th>Way in</th><th>First line (the 1M)</th></tr>
+      <tr data-step="1"><td class="big">1</td><td>Volume conserved, then share by <span class="m">k^3</span></td><td><span class="m">\tfrac43\pi(10)^3 \times \dfrac{3^3}{2^3 + 3^3 + 5^3} = 225\pi</span></td></tr>
+      <tr data-step="2"><td class="big">2</td><td>The liquid is a similar cone</td><td><span class="m">\dfrac{V - 444\pi}{V} = \left(\dfrac{12}{16}\right)^3 \Rightarrow V = 768\pi</span></td></tr>
+      <tr data-step="3"><td class="big">3</td><td>Frustum <span class="m">= V(1 - k^3)</span>, <span class="m">k</span> from the vertex</td><td><span class="m">\tfrac13(64^2)(24)\left[1 - \left(\tfrac{18}{24}\right)^3\right] = 18944</span></td></tr>
+      <tr data-step="4"><td class="big">4</td><td>Compare two ratios</td><td><span class="m">\left(\tfrac{10}{20}\right)^3 = \tfrac18</span> but <span class="m">\tfrac{800\pi}{2800\pi} = \tfrac27</span>: not similar</td></tr>
+    </table>
+    <p class="note" data-step="4">Read what is given. The given information chooses the method.</p>
+  </div>
+  <div class="foot"><span class="where">F6 Mathematics · Mensuration</span><h2>3 | Ways in</h2></div>
+</section>
+
+<!-- 14. Problem: 2020 three equal heights, the cone sliced -->
+<section class="scene" data-enter="slice">
+  <div class="body">
+    <div class="withfig">
+      <div>
+        <p class="in" style="--i:1"><span class="tag own">2020 P1 Q12</span>A solid cone of height <span class="m">36\text{ cm}</span> and base radius <span class="m">15\text{ cm}</span> is cut into three parts of <strong>equal height</strong> by two planes parallel to its base.</p>
+        <p class="display big blue-text in" style="--i:2">What fraction of the cone is the middle part?</p>
+        <div class="btns choice opts in" style="--i:3"><button class="btn"><span class="m">\tfrac13</span></button><button class="btn"><span class="m">\tfrac{7}{27}</span></button><button class="btn"><span class="m">\tfrac{8}{27}</span></button><button class="btn"><span class="m">\tfrac{4}{9}</span></button></div>
+        <p class="note" data-step="1">The next screen shows the answer. Has everyone chosen?</p>
+      </div>
+      <svg id="sliceFig" class="fig in" style="--i:2" viewBox="0 0 600 520" role="img" aria-label="A cone cut by two planes into three parts of equal height, the parts drawn apart"></svg>
+    </div>
+  </div>
+  <div class="foot"><span class="where">F6 Mathematics · Mensuration</span><h2>4 | Frustums</h2></div>
+</section>
+
+<!-- 15. Reveal: 7/27 -->
+<section class="scene">
+  <div class="body">
+    <p class="display big blue-text in" style="--i:1">Measure every cone from the vertex.</p>
+    <div class="eq" data-step="1">Cones of height <span class="m">12, 24, 36</span>: <span class="m">k = \tfrac13, \tfrac23, 1</span>, so volumes <span class="m">1 : 8 : 27</span></div>
+    <div class="eq" data-step="2">Middle part <span class="m">= \dfrac{2^3 - 1^3}{3^3} = \dfrac{7}{27}</span> of the cone <span class="m">= \tfrac13\pi(15^2)(36)\cdot\tfrac{7}{27} = 700\pi</span></div>
+    <div class="eq" data-step="3">Its curved surface: <span class="m">\pi(15)(39)\cdot\dfrac{2^2 - 1^2}{3^2} = 195\pi</span></div>
+    <p class="note" data-step="3">The parts are not equal: equal heights do not mean equal volumes.</p>
+  </div>
+  <div class="foot"><span class="where">F6 Mathematics · Mensuration</span><h2>4 | Frustums</h2></div>
+</section>
+
+<!-- 16. Commit: 2023 fifteen times -->
+<section class="scene">
+  <div class="body">
+    <p class="in" style="--i:1"><span class="tag own">2023 P1 Q14(b)</span>A cone is cut into a small cone <span class="m">X</span> and a frustum <span class="m">Y</span>. The curved surface area of <span class="m">Y</span> is <strong>15 times</strong> that of <span class="m">X</span>.</p>
+    <p class="display big blue-text in" style="--i:2">What is the ratio of the height of X to the height of the whole cone?</p>
+    <div class="btns choice opts in" style="--i:3"><button class="btn"><span class="m">1 : 15</span></button><button class="btn"><span class="m">1 : \sqrt{15}</span></button><button class="btn"><span class="m">1 : 4</span></button><button class="btn"><span class="m">1 : 16</span></button></div>
+    <p class="note" data-step="1">The next screen shows the answer. Has everyone chosen?</p>
+  </div>
+  <div class="foot"><span class="where">F6 Mathematics · Mensuration</span><h2>5 | Level 5 twist</h2></div>
+</section>
+
+<!-- 17. Reveal: 1 : 4 -->
+<section class="scene blue">
+  <div class="body">
+    <p class="count in" style="--i:1">1 : 4</p>
+    <p class="display big in" style="--i:2">The whole cone is <span class="m">1 + 15 = 16</span> times <span class="m">X</span>. So <span class="m">k^2 = \tfrac1{16}</span> and <span class="m">k = \tfrac14</span>.</p>
+    <p class="in" style="--i:3"><span class="m">V_Y = \tfrac13\pi(14^2)(48)\left(1 - \tfrac1{64}\right) = 3087\pi\text{ cm}^3</span>. Worksheet B3 is the same shape.</p>
+  </div>
+  <div class="foot"><h2>5 | Level 5 twist</h2></div>
+</section>
+
+<!-- 18. Problem: 2018 overflow, the sphere lowered into the vessel -->
+<section class="scene" data-enter="drop">
+  <div class="body">
+    <div class="withfig">
+      <div>
+        <p class="in" style="--i:1"><span class="tag own">2018 P1 Q14(c)</span>An inverted cone, radius <span class="m">20\text{ cm}</span> and height <span class="m">60\text{ cm}</span>, holds <span class="m">4096\pi\text{ cm}^3</span> of water. A metal sphere of radius <span class="m">14\text{ cm}</span> is put in and totally immersed.</p>
+        <p class="display big blue-text in" style="--i:3">Will the water overflow?</p>
+        <div class="btns choice opts in" style="--i:4"><button class="btn">Yes</button><button class="btn">No</button></div>
+        <p class="note" data-step="1">Decide with numbers, not with the picture. The next screen shows the answer.</p>
+      </div>
+      <svg id="dropFig" class="fig in" style="--i:2" viewBox="0 0 600 520" role="img" aria-label="An inverted cone holding water, drawn to scale, with a sphere of radius 14 cm being lowered towards the water"></svg>
+    </div>
+  </div>
+  <div class="foot"><span class="where">F6 Mathematics · Mensuration</span><h2>6 | The last part</h2></div>
+</section>
+
+<!-- 19. Reveal: the method with its marks -->
+<section class="scene">
+  <div class="body">
+    <p class="display big blue-text in" style="--i:1">Two numbers, one comparison, one sentence.</p>
+    <div class="ms">
+      <span data-step="1"><span class="lbl">Space left</span>&nbsp; <span class="m">\tfrac13\pi(20^2)(60) - 4096\pi = 3904\pi\text{ cm}^3</span></span><span class="mk" data-step="1">1M</span>
+      <span data-step="2"><span class="lbl">Sphere</span>&nbsp; <span class="m">\tfrac43\pi(14^3) = \tfrac{10976}{3}\pi \approx 3658.7\pi\text{ cm}^3</span></span><span class="mk" data-step="2">1M</span>
+      <span data-step="3"><span class="lbl">Compare</span>&nbsp; <span class="m">3658.7\pi \lt 3904\pi</span></span><span class="mk" data-step="3"></span>
+      <span data-step="4"><span class="lbl">Conclude</span>&nbsp; Thus, the water will <strong>not</strong> overflow.</span><span class="mk" data-step="4">1A f.t.</span>
+    </div>
+    <p class="note" data-step="4">The same three lines finish every claim: keep <span class="m">\pi</span>, compare in the same units (<span class="m">1\text{ m}^3 = 10^6\text{ cm}^3</span>), then conclude.</p>
+  </div>
+  <div class="foot"><span class="where">F6 Mathematics · Mensuration</span><h2>6 | The method</h2></div>
+</section>
+
+<!-- 20. Work: exam conditions, B2, with the sphere recast -->
+<section class="scene" data-enter="recast">
+  <div class="body">
+    <div class="withfig">
+      <div>
+        <div class="row in" style="--i:1"><div><div class="who">Alone</div><button class="timer" data-sec="420"></button></div><p>Worksheet <strong>B2</strong>, exam conditions. 8 marks, 7 minutes. No talking, no notes.</p></div>
+        <div class="row" data-step="1"><div><div class="who">Swap</div><button class="timer" data-sec="120"></button></div><p>Swap with your neighbour. Mark with the scheme on the next screen: <strong>M</strong> for the method, <strong>A</strong> for the answer.</p></div>
+        <p class="note" data-step="2">The next screen shows the marking scheme. Pens down?</p>
+      </div>
+      <svg id="recastFig" class="fig in" style="--i:2" viewBox="0 0 600 520" role="img" aria-label="A sphere of radius 9 cm melted into three similar cylinders with radii in the ratio 1 to 2 to 3"></svg>
+    </div>
+  </div>
+  <div class="foot"><span class="where">F6 Mathematics · Mensuration</span><h2>7 | Exam conditions</h2></div>
+</section>
+
+<!-- 21. Reveal: B2 scheme -->
+<section class="scene">
+  <div class="body">
+    <div class="cols2">
+      <div class="ms" style="font-size:1.3rem">
+        <span class="part">(a)</span>
+        <span data-step="1">Sphere: <span class="m">\tfrac43\pi(9^3) = 972\pi</span></span><span class="mk" data-step="1">1M</span>
+        <span data-step="1"><span class="m">V_Y = 972\pi \times \dfrac{2^3}{1^3 + 2^3 + 3^3} = 216\pi\text{ cm}^3</span></span><span class="mk" data-step="1">1M + 1A</span>
+        <span class="part" data-step="2">(b)(i)</span>
+        <span data-step="2"><span class="m">\pi r_2^2(24) = 216\pi</span></span><span class="mk" data-step="2">1M</span>
+        <span data-step="2"><span class="m">r_2 = 3</span></span><span class="mk" data-step="2">1A</span>
+      </div>
+      <div class="ms" style="font-size:1.3rem">
+        <span class="part" data-step="3">(b)(ii)</span>
+        <span data-step="3">TSA of <span class="m">Y = 2\pi(3^2) + 2\pi(3)(24) = 162\pi</span></span><span class="mk" data-step="3"></span>
+        <span data-step="3">TSA of <span class="m">Z = 162\pi\left(\tfrac32\right)^2 = 364.5\pi</span></span><span class="mk" data-step="3">1M</span>
+        <span data-step="4">Sphere: <span class="m">4\pi(9^2) = 324\pi \lt 364.5\pi</span></span><span class="mk" data-step="4">1M</span>
+        <span data-step="4">Thus, the claim is agreed.</span><span class="mk" data-step="4">1A f.t.</span>
+        <span class="note" style="grid-column:1/-1" data-step="4">Lost the last mark? Check that both numbers and the sentence are there.</span>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span class="where">F6 Mathematics · Mensuration</span><h2>7 | Marking scheme</h2></div>
+</section>
+
+<!-- 22. The similarity test -->
+<section class="scene">
+  <div class="body">
+    <p class="in" style="--i:1"><span class="tag own">2024 P1 Q13(b)</span>Frustum <span class="m">X</span>: height <span class="m">6</span>, TSA <span class="m">8640</span>. Frustum <span class="m">Z</span>: height <span class="m">3</span>, TSA <span class="m">960</span>. Are <span class="m">X</span> and <span class="m">Z</span> similar?</p>
+    <div class="eq sm" data-step="1"><span class="m">\left(\dfrac{\text{height of } X}{\text{height of } Z}\right)^2 = \left(\dfrac63\right)^2 = 4</span></div>
+    <div class="eq sm" data-step="2"><span class="m">\dfrac{\text{TSA of } X}{\text{TSA of } Z} = \dfrac{8640}{960} = 9</span></div>
+    <div class="eq sm" data-step="3">Since <span class="m">9 \ne 4</span>, <span class="m">X</span> and <span class="m">Z</span> are not similar.</div>
+    <p class="note" data-step="3">One pair of ratios that disagree proves "not similar". In all four recent "similar?" parts the answer was no.</p>
+  </div>
+  <div class="foot"><span class="where">F6 Mathematics · Mensuration</span><h2>6 | Similar?</h2></div>
+</section>
+
+<!-- 23. Trap gallery -->
+<section class="scene">
+  <div class="body traps">
+    <p class="display big blue-text in" style="--i:1; font-size:2.8rem">Six ways to lose a mark you earned.</p>
+    <div class="row" data-step="1"><div class="who">1</div><p>Areas <span class="m">4 : 9</span> give volumes <span class="m">8 : 27</span>. <strong>Go through <span class="m">k</span>.</strong> (2017, 2022)</p></div>
+    <div class="row" data-step="2"><div class="who">2</div><p><span class="m">k</span> is measured <strong>from the vertex</strong>, not with the frustum's own height. (2014, 2024)</p></div>
+    <div class="row" data-step="3"><div class="who">3</div><p>15 times the small cone means the whole is <strong>16 parts</strong>. (2023)</p></div>
+    <div class="row" data-step="4"><div class="who">4</div><p><strong>Slant height</strong> in <span class="m">\pi r\ell</span> and on a pyramid's faces, not the height.</p></div>
+    <div class="row" data-step="5"><div class="who">5</div><p><strong>Total</strong> means every face: both circles of a frustum (2025), the flat face of a hemisphere.</p></div>
+    <div class="row" data-step="6"><div class="who">6</div><p>No comparison and sentence, <strong>no 1A</strong>. "Thus, the claim is disagreed."</p></div>
+  </div>
+  <div class="foot"><span class="where">F6 Mathematics · Mensuration</span><h2>8 | Traps</h2></div>
+</section>
+
+<!-- 24. Exit ticket -->
+<section class="scene">
+  <div class="body">
+    <p class="in" style="--i:1"><span class="tag">Exit ticket</span><button class="timer" data-sec="90" style="display:inline-block;margin:0"></button></p>
+    <p class="q in" style="--i:2">Two solid cones are similar. The ratio of their curved surface areas is <span class="m">9 : 16</span>. If the volume of the smaller cone is <span class="m">54\pi\text{ cm}^3</span>, then the volume of the larger cone is</p>
+    <div class="btns choice opts in" style="--i:3"><button class="btn"><b>A</b><span class="m">72\pi\text{ cm}^3</span></button><button class="btn"><b>B</b><span class="m">96\pi\text{ cm}^3</span></button><button class="btn"><b>C</b><span class="m">128\pi\text{ cm}^3</span></button><button class="btn"><b>D</b><span class="m">216\pi\text{ cm}^3</span></button></div>
+    <p class="note" data-step="1">On a slip of paper: your letter and the one line that got it. The next screen shows the answer.</p>
+  </div>
+  <div class="foot"><span class="where">F6 Mathematics · Mensuration</span><h2>9 | Exit ticket</h2></div>
+</section>
+
+<!-- 25. Reveal and homework -->
+<section class="scene blue">
+  <div class="body">
+    <p class="in" style="--i:1"><span class="tag">C</span><span class="m">k = \sqrt{\tfrac{16}{9}} = \tfrac43</span>, so the larger cone is <span class="m">54\pi \times \left(\tfrac43\right)^3 = 128\pi\text{ cm}^3</span></p>
+    <p class="display big in" style="--i:2">Homework: the rest of the worksheet.</p>
+    <p class="in" style="--i:3">A5 to A8 at 75 seconds each. B1, B3 to B6 at one minute per mark, on foolscap. Revise from the notes and the drill on the reading page.</p>
+  </div>
+  <div class="foot"><h2>Mensuration: done</h2></div>
+</section>
+
+<script src="vendor/katex/katex.min.js"></script>
+<script src="js/math.js"></script>
+<script src="live/live.js"></script>
+<script>
+/* Drawing helpers for solids: outlines in ink, hidden edges dashed, liquids and highlights in light blue. */
+var Solid = (function () {
+  var RY = 0.26;                                                    // ellipse depth / radius
+  function line(attrs) { return Live.svg("path", Object.assign({ fill: "none", stroke: Live.color.ink, "stroke-width": 3 }, attrs)); }
+  function half(cx, cy, rx, front) { var ry = rx * RY; return "M" + (cx - rx) + " " + cy + " A" + rx + " " + ry + " 0 0 " + (front ? 0 : 1) + " " + (cx + rx) + " " + cy; }
+  function ellipse(cx, cy, rx) { var ry = rx * RY; return "M" + (cx - rx) + " " + cy + " a" + rx + " " + ry + " 0 1 0 " + 2 * rx + " 0 a" + rx + " " + ry + " 0 1 0 " + -2 * rx + " 0"; }
+  /* Upright cone or frustum: bottom circle radius r1 at y1, top radius r2 at y2 (r2 = 0 for a cone). */
+  function frustum(g, cx, y1, r1, y2, r2, fill) {
+    if (fill) g.appendChild(Live.svg("path", { d: "M" + (cx - r1) + " " + y1 + " L" + (cx - r2) + " " + y2 + " L" + (cx + r2) + " " + y2 + " L" + (cx + r1) + " " + y1 + " A" + r1 + " " + r1 * RY + " 0 0 1 " + (cx - r1) + " " + y1, fill: fill }));
+    g.appendChild(line({ d: "M" + (cx - r1) + " " + y1 + " L" + (cx - r2) + " " + y2 + (r2 ? "" : "") + " M" + (cx + r1) + " " + y1 + " L" + (cx + r2) + " " + y2 }));
+    g.appendChild(line({ d: half(cx, y1, r1, true) }));
+    g.appendChild(line({ d: half(cx, y1, r1, false), "stroke-dasharray": "8 7", "stroke-width": 2 }));
+    if (r2) g.appendChild(line({ d: ellipse(cx, y2, r2) }));
+  }
+  function cylinder(g, cx, y1, r, h, fill) {
+    if (fill) g.appendChild(Live.svg("path", { d: "M" + (cx - r) + " " + y1 + " V" + (y1 - h) + " H" + (cx + r) + " V" + y1 + " A" + r + " " + r * RY + " 0 0 1 " + (cx - r) + " " + y1, fill: fill }));
+    g.appendChild(line({ d: "M" + (cx - r) + " " + y1 + " V" + (y1 - h) + " M" + (cx + r) + " " + y1 + " V" + (y1 - h) }));
+    g.appendChild(line({ d: half(cx, y1, r, true) }));
+    g.appendChild(line({ d: half(cx, y1, r, false), "stroke-dasharray": "8 7", "stroke-width": 2 }));
+    g.appendChild(line({ d: ellipse(cx, y1 - h, r) }));
+  }
+  function sphere(g, cx, cy, r, fill) {
+    g.appendChild(Live.svg("circle", { cx: cx, cy: cy, r: r, fill: fill || "none", stroke: Live.color.ink, "stroke-width": 3 }));
+    g.appendChild(line({ d: half(cx, cy, r, true), "stroke-width": 2 }));
+    g.appendChild(line({ d: half(cx, cy, r, false), "stroke-dasharray": "8 7", "stroke-width": 2 }));
+  }
+  function text(g, x, y, t, cls, anchor) { g.appendChild(Live.svg("text", { x: x, y: y, "text-anchor": anchor || "middle", class: cls || "" }, t)); }
+  function clear(g) { while (g.firstChild) g.removeChild(g.firstChild); }
+  return { RY: RY, line: line, half: half, ellipse: ellipse, frustum: frustum, cylinder: cylinder, sphere: sphere, text: text, clear: clear };
+})();
+var WASH = "rgba(0, 72, 152, 0.14)";
+
+/* Scene 2: Paper 1 marks per year, columns growing one after another. */
+(function () {
+  var data = [[2012, 14], [2013, 7], [2014, 8], [2015, 5], [2016, 6], [2017, 7], [2018, 9], [2019, 5], [2020, 6], [2021, 8], [2022, 7], [2023, 8], [2024, 7], [2025, 9], [2026, 8]];
+  var svg = document.getElementById("marks"), base = 290, H = 17, W = 40, gap = 64, x0 = 22, cols = [], vals = [];
+  svg.appendChild(Live.svg("line", { x1: 10, x2: 990, y1: base, y2: base, stroke: "#ffffff", "stroke-width": 2 }));
+  data.forEach(function (d, i) {
+    var x = x0 + i * gap;
+    var r = Live.svg("rect", { x: x, y: base, width: W, height: 0, fill: "#ffffff" });
+    var v = Live.svg("text", { x: x + W / 2, y: base - 8, "text-anchor": "middle", style: "opacity:0;font-size:24px" }, String(d[1]));
+    var y = Live.svg("text", { x: x + W / 2, y: base + 30, "text-anchor": "middle" }, String(d[0]));
+    svg.appendChild(r); svg.appendChild(v); svg.appendChild(y); cols.push(r); vals.push(v);
+  });
+  Live.onEnter("marks", function (alive) {
+    cols.forEach(function (r) { r.setAttribute("y", base); r.setAttribute("height", 0); });
+    vals.forEach(function (v) { v.style.opacity = 0; });
+    Live.wait(700, alive).then(function grow(i) {
+      i = i || 0;
+      if (i >= data.length || !alive()) return;
+      var h = data[i][1] * H;
+      return Live.tween(200, function (p) {
+        var e = Live.ease(p);
+        cols[i].setAttribute("y", base - h * e); cols[i].setAttribute("height", h * e);
+        vals[i].setAttribute("y", base - h * e - 10); vals[i].style.opacity = e;
+      }, alive).then(function () { return grow(i + 1); });
+    });
+  });
+})();
+
+/* Scene 4: a cone (radius 3, height 4 units) and a similar cone growing from k = 1 to k = 2. */
+(function () {
+  var svg = document.getElementById("growFig"), g = Live.svg("g", {}), kNow = document.getElementById("kNow"), U = 50;
+  svg.appendChild(g);
+  function draw(k) {
+    Solid.clear(g);
+    Solid.frustum(g, 120, 470, 1.5 * U, 470 - 2 * U, 0, WASH);           // the original, fixed
+    Solid.text(g, 120, 505, "k = 1", "muted");
+    Solid.frustum(g, 400, 470, 1.5 * U * k, 470 - 2 * U * k, 0);          // the similar cone
+    Solid.text(g, 400, 505, "k = " + k.toFixed(2));
+    kNow.textContent = k.toFixed(2);
+  }
+  draw(1);
+  Live.onEnter("grow", function (alive) {
+    draw(1);
+    Live.wait(1200, alive).then(function () {
+      return Live.tween(2600, function (p) { draw(1 + Live.ease(p)); }, alive);
+    });
+  });
+})();
+
+/* Scene 8: a sector of radius 14 opening to its real angle (arc 21 cm, so 85.9 degrees). */
+(function () {
+  var svg = document.getElementById("sectorFig"), g = Live.svg("g", {}), R = 330, O = [140, 420], TH = 21 / 14 * 180 / Math.PI;
+  svg.appendChild(g);
+  function pt(deg) { var a = deg * Math.PI / 180; return [O[0] + R * Math.cos(a), O[1] - R * Math.sin(a)]; }
+  function draw(deg) {
+    Solid.clear(g);
+    var A = pt(0), B = pt(deg);
+    g.appendChild(Live.svg("path", { d: "M" + O + " L" + A + " A" + R + " " + R + " 0 0 0 " + B + " Z", fill: WASH }));
+    g.appendChild(Solid.line({ d: "M" + B + " L" + O + " L" + A }));
+    g.appendChild(Solid.line({ d: "M" + A + " A" + R + " " + R + " 0 0 0 " + B, stroke: Live.color.blue, "stroke-width": 6 }));
+    Solid.text(g, O[0] + R / 2, O[1] + 34, "14 cm");
+    var M = pt(deg / 2);
+    if (deg > 20) Solid.text(g, M[0] + 34, M[1] - 6, "ℓ", "it");
+  }
+  draw(0);
+  Live.onEnter("sector", function (alive) {
+    draw(0);
+    Live.wait(900, alive).then(function () { return Live.tween(2200, function (p) { draw(TH * Live.ease(p)); }, alive); });
+  });
+})();
+
+/* Scene 14: a cone of height 36 and radius 15, cut at heights 12 and 24 from the vertex; the parts move apart. */
+(function () {
+  var svg = document.getElementById("sliceFig"), g = Live.svg("g", {}), U = 11, cx = 300, base = 480, H = 36 * U, R = 15 * U;
+  svg.appendChild(g);
+  function rAt(fromVertex) { return R * fromVertex / 36; }
+  function draw(s) {                                            // s = 0 whole, 1 fully apart
+    Solid.clear(g);
+    var gap = 34 * s, yb = base, y1 = base - 12 * U, y2 = base - 24 * U, yt = base - H;
+    Solid.frustum(g, cx, yb, R, y1, rAt(24));                                   // bottom part
+    Solid.frustum(g, cx, y1 - gap, rAt(24), y2 - gap, rAt(12), WASH);            // middle part, lightly filled
+    Solid.frustum(g, cx, y2 - 2 * gap, rAt(12), yt - 2 * gap, 0);               // top cone
+    Solid.text(g, cx + R + 18, yb - 6 * U, "12 cm", "muted", "start");
+    Solid.text(g, cx + R + 18, y1 - gap - 6 * U, "12 cm", "muted", "start");
+    Solid.text(g, cx + R + 18, y2 - 2 * gap - 6 * U, "12 cm", "muted", "start");
+  }
+  draw(0);
+  Live.onEnter("slice", function (alive) {
+    draw(0);
+    Live.wait(1300, alive).then(function () { return Live.tween(1600, function (p) { draw(Live.ease(p)); }, alive); });
+  });
+})();
+
+/* Scene 18: inverted cone r 20, h 60, water 48 cm deep (to scale); a sphere of radius 14 lowered to the surface. */
+(function () {
+  var svg = document.getElementById("dropFig"), g = Live.svg("g", {}), U = 5.2, cx = 300, apex = 515, top = apex - 60 * U, R = 20 * U;
+  svg.appendChild(g);
+  var wy = apex - 48 * U, wr = 16 * U, s = 14 * U;
+  function draw(p) {                                            // p = 0 sphere above, 1 sphere resting on the water
+    Solid.clear(g);
+    g.appendChild(Live.svg("path", { d: "M" + (cx - wr) + " " + wy + " L" + cx + " " + apex + " L" + (cx + wr) + " " + wy + " Z", fill: WASH }));
+    g.appendChild(Solid.line({ d: Solid.ellipse(cx, wy, wr), stroke: Live.color.blue, "stroke-width": 2 }));
+    g.appendChild(Solid.line({ d: "M" + (cx - R) + " " + top + " L" + cx + " " + apex + " L" + (cx + R) + " " + top }));
+    g.appendChild(Solid.line({ d: Solid.ellipse(cx, top, R) }));
+    var cy = (top - s - 10) + (wy - s - (top - s - 10)) * p;
+    Solid.sphere(g, cx, cy, s);
+    Solid.text(g, cx + R + 14, top + 10, "r = 20", "muted", "start");
+    Solid.text(g, cx + wr + 20, wy + 60, "depth 48", "muted", "start");
+  }
+  draw(0);
+  Live.onEnter("drop", function (alive) {
+    draw(0);
+    Live.wait(1000, alive).then(function () { return Live.tween(2400, function (p) { draw(Live.ease(p)); }, alive); });
+  });
+})();
+
+/* Scene 20: a sphere of radius 9 recast into three similar cylinders, radii 1.5, 3, 4.5 and heights 12, 24, 36 (to scale). */
+(function () {
+  var svg = document.getElementById("recastFig"), g = Live.svg("g", {}), U = 9, base = 480;
+  svg.appendChild(g);
+  var cyl = [[95, 1.5, 12, "X"], [235, 3, 24, "Y"], [440, 4.5, 36, "Z"]];
+  function draw(p) {                                            // p = 0 sphere, 1 cylinders
+    Solid.clear(g);
+    var sr = 9 * U * Math.cbrt(Math.max(0, 1 - p));
+    if (sr > 1) Solid.sphere(g, 300, 150, sr, WASH);
+    cyl.forEach(function (c) {
+      var h = c[2] * U * p;
+      if (h > 1) Solid.cylinder(g, c[0], base, c[1] * U, h, WASH);
+      if (p > 0.95) Solid.text(g, c[0], base + 34, c[3], "it");
+    });
+  }
+  draw(0);
+  Live.onEnter("recast", function (alive) {
+    draw(0);
+    Live.wait(1400, alive).then(function () { return Live.tween(3000, function (p) { draw(p); }, alive); });
+  });
+})();
+</script>
+</body>
+</html>
