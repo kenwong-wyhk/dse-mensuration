@@ -33,7 +33,23 @@ var papers = [            // [form, the paper's numbers, the paper's answer]
   ["e_pgram",   { m: 5, n: 3, X: 120 }, "237"],                             // 2018 P2 Q16: A 237
   ["e_tri",     { a: 5, b: 6, c: 3, d: 4, X: 59 }, "18"],                   // 2022 P2 Q17: B 18
   ["e_pqrs",    { m: 4, n: 5, T: 90 }, "50"],                               // 2023 P2 Q17: B 50
-  ["e_map",     { n: 500, a: 36 }, "1:500"]                                 // 2013 P2 Q12: C 1 : 500
+  ["e_map",     { n: 500, a: 36 }, "1:500"],                                // 2013 P2 Q12: C 1 : 500
+  ["a_circ",    { r: 2, t: [1, 0, 1] }, "IandIIIonly"],                     // 2021 P2 Q17: B I and III only
+  ["a_chord",   { o: 18, e: 24, arc: false }, "75\\pi"],                    // 2018 P2 Q17: B 75pi
+  ["a_pi",      { a: 3, b: 12, t: [1, 1, 1] }, "I,IIandIII"],               // 2025 P2 Q15: D I, II and III
+  ["b_comp",    { th: 60, r: 6 }, "\\left(12\\pi+9\\sqrt{3}\\right)"],      // 2012 P2 Q21: D (12pi + 9 sqrt3)
+  ["b_semi",    { d: 3, c: 2 }, "0.52"],                                    // 2013 P2 Q16: B 0.52
+  ["b_two",     { g1: 30, g2: 10 }, "540"],                                 // 2023 P2 Q16: D 540
+  ["c_hex",     { s: 8, k: 1 }, "416"],                                     // 2021 P2 Q15: C 416
+  ["c_trap",    { a: 4, h: 5, c: 13, L: 6 }, "300"],                        // 2016 P2 Q18: C 300
+  ["e_pgG",     { p: 3, q: 4, r: 1, s: 1, X: 3 }, "14"],                    // 2012 P2 Q17: B 14
+  ["e_trapF",   { p: 2, q: 3, s: 1, t: 1, X: 36 }, "280"],                  // 2013 P2 Q18: C 280
+  ["e_pgFG",    { p: 2, q: 3, X: 8 }, "27"],                                // 2015 P2 Q17: D 27
+  ["e_pgDH",    { p: 2, q: 3, X: 135 }, "144"],                             // 2017 P2 Q16: D 144
+  ["e_sqXY",    { a: 2, b: 7, c: 3, Ar: 24 }, "87"],                        // 2019 P2 Q16: D 87
+  ["e_pgH",     { a: 2, b: 5, X: 48 }, "343"],                              // 2020 P2 Q18: B 343
+  ["e_four",    { a: 1, b: 3, c: 2, d: 3, e: 1, f: 2, X: 16 }, "49"],       // 2025 P2 Q17: B 49
+  ["e_tz",      { p: 3, q: 5, s: 2, t: 3, X: 225 }, "279"]                  // 2026 P2 Q18: C 279
 ];
 var ids = Object.keys(D.forms), tested = {};
 papers.forEach(function (c) {
