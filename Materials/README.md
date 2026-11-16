@@ -11,12 +11,12 @@ Class: F6, all aiming for Level 5 or above, so the 2020, 2023 and 2024 "twists" 
 | `print/worksheet.pdf` | every student | 2 pages, print double-sided. A1–A8 (Paper 2 twins), B1–B6 (Paper 1 twins) |
 | `print/worksheet-answers.pdf` | teacher | full solutions with M/A marks in the DSE marking-scheme style; release after the homework |
 | `site/live.html` | the classroom TV | the 40-minute lesson, 25 scenes. Scroll (or a clicker / arrow keys) to move on; F for full screen |
-| `site/index.html` | students, self-study | the notes as a web page, plus an endless randomised MC drill of the five shapes |
+| `site/index.html` | students, self-study | the notes as a web page, plus an endless randomised MC drill: twins of 25 real past-paper questions (2012–2026) in the five shapes |
 
 Source files: `print/*.tex` (compile with `pdflatex`; `worksheet-answers.tex` reuses `worksheet.tex`), `site/js/drill.js` (the drill).
 Checks: `python tools/check_twins.py` (every twin, the exit ticket and the real-paper answers quoted in the notes, with
-exact fractions) and `node tools/check_drill.js` (15 000 generated drill questions: distinct options, frustum and
-letter answers re-derived).
+exact fractions) and `node tools/check_drill.js` (each of the 25 drill forms, given the real paper's numbers, must give
+that paper's answer, or for one form the segment inside 2012 P2 Q21; then 2000 questions per form with four distinct options).
 
 Every worksheet question is a *twin* of a real DSE question (same shape, new numbers).
 
